@@ -1,15 +1,12 @@
 ---
-title: API Reference
+title: StockTwits API
 
 language_tabs:
   - shell
-  - ruby
-  - python
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='http://stocktwits.com/developers/apps/new'>Register your App</a>
 
 includes:
   - errors
@@ -19,11 +16,11 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+The StockTwits RESTful API allows you to leverage the user base, social graph and content network that drive the StockTwits community.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Your application and your users can access the StockTwits social graph, display curated data streams, integrate watch lists, and easily share messages, links and charts directly from your application.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+The StockTwits API is perfect for financial applications/websites/apps that want or need a social layer.
 
 # Authentication
 
