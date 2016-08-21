@@ -194,6 +194,213 @@ and or blacklist it. If you are blacklisted you will be unable to get a response
 
 <p>If your application requires extended data or a higher rate limit, you may want to consider becoming a partner. Please contact our team for more information.</p>
 
+<h1 id="parameters-amp-pagination">Parameters &amp; Pagination</h1>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>Some API endpoints take optional or required parameters. When making requests with parameters, values should be
+converted to <a href='http://en.wikipedia.org/wiki/UTF-8'>UTF-8</a> and URL encoded.</p>
+
+<h2 id="pagintation">Pagintation</h2>
+
+<blockquote>
+<p>Example of a paginated request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/friends.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  -d <span class="s1">'max=60975380'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cursor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"more"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"since"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975379</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">54647845</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975379</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$AAPL going up from here"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-19T15:15:48Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eric Alford"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"conversation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"parent_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60974422</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"in_reply_to_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975320</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"replies"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"reshares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"reshared_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"mentioned_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60899441</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$AAPL good read about earnings: http://www.media.com/aapl-post-earnings-analysis"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-18T17:20:47Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1036</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zerobeta"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Justin Paterno"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-03-17"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"reshares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"reshared_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"mentioned_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60822179</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Is this $AAPL rally just getting started?"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-17T19:30:34Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">134</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"howardlindzon"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Howard Lindzon"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2010-06-27"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"conversation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"parent_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60785036</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"in_reply_to_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60785932</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"replies"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"reshares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"reshared_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"mentioned_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Clients may access a theoretical maximum of 800 messages via the cursor parameters for the API methods.
+Requests for more than the limit will result in a reply with a status code of 200 and an empty result in the format
+requested. StockTwits still maintains a database of all the messages sent by a user.
+However, to ensure performance of the site, this artificial limit is temporarily in place.</p>
+
+<p>There are two main parameters when paginating through results.</p>
+
+<p><strong>Since</strong> will return results with an ID greater than (more recent than) the specified ID. Use this when getting new
+results or messages to a stream.</p>
+
+<p><strong>Max</strong> will return results with an ID less than (older than) or equal to the specified ID. Use this to get older
+results or messages that have previously been published.</p>
+
+<h1 id="counting-characters">Counting Characters</h1>
+
+<p>StockTwits limits all message lengths to 140 characters. URLs and images affect the length of the message. Any message
+over 140 characters will return an error response.</p>
+
+<h2 id="character-encoding">Character Encoding</h2>
+
+<p>The StockTwits API supports UTF-8 encoding and any UTF-8 character counts as a single character. Please note that
+angle brackets (&ldquo;&lt;&rdquo; and &ldquo;&gt;&rdquo;) are entity-encoded to prevent Cross-Site Scripting attacks for web-embedded consumers of
+JSON API output. The resulting encoded entities do count towards the 140 character limit. Symbols and characters
+outside of the standard ASCII range may be translated to HTML entities.</p>
+
+<p><strong>URL/Links</strong> such as &ldquo;http://stocktwits.com&rdquo; will represent &ldquo;23&rdquo; characters in the message length. Links are defined as
+having a protocol such as &ldquo;http://&rdquo; or &ldquo;https://&rdquo;.</p>
+
+<p><strong>Charts/Images</strong> will represent &ldquo;24&rdquo; characters in the message length.</p>
+
+<h1 id="content-display-requirements">Content Display Requirements</h1>
+
+<h2 id="content">Content</h2>
+
+<ol>
+<li>Do not modify, edit or otherwise change the message content as passed through the API, except as needed to reformat
+for technical limitations of your specific service.</li>
+<li>All $TICKER cashtags within each message must be hyperlinked and point to the StockTwits ticker page at
+<a href="http://www.stocktwits.com/symbol/">http://www.stocktwits.com/symbol/</a>.</li>
+<li>All @mentions within each message must be hyperlinked and point to the StockTwits user page for the mentioned user
+at <a href="http://www.stocktwits.com/">http://www.stocktwits.com/</a>.</li>
+<li>Messages should be presented with a timestamp, either in absolute (May 1, 2012 3:30pm) or relative (1 hour ago)
+format. The timestamp should be linked to the message display page on StockTwits at
+<a href="http://www.stocktwits.com/message/">http://www.stocktwits.com/message/</a>.</li>
+<li>If you choose to display media objects passed within the API in your application; such as a chart image,
+the object must be hyperlinked and point to the message display page on StockTwits at
+<a href="http://www.stocktwits.com/message/">http://www.stocktwits.com/message/</a>.</li>
+</ol>
+
+<h2 id="author-and-attribution">Author and Attribution</h2>
+
+<ol>
+<li>The StockTwits user’s name must be presented as the author of the content, using either the user’s StockTwits user
+name or user name and full name. The name should be linked to the user’s StockTwits profile page at
+<a href="http://www.stocktwits.com/">http://www.stocktwits.com/</a>.</li>
+<li>The user’s name should be presented in a way to distinguish it from the message content.</li>
+<li>Display of the user’s avatar is recommended, but not required. If displayed, the user’s avatar should also be linked
+to the StockTwits user page for the user.</li>
+</ol>
+
+<h2 id="message-interactions">Message Interactions</h2>
+
+<ol>
+<li>You may include Reply, Reshare, and Like action links using the StockTwits web intents, if so they should be used
+consistently across all messages for authenticated StockTwits users.</li>
+<li>You cannot include third party interactions with StockTwits messages.</li>
+</ol>
+
+<h2 id="branding">Branding</h2>
+
+<ol>
+<li>It must always be apparent to the user that they are looking at a StockTwits message.</li>
+<li>Any StockTwits messages displayed individually or as part of a stream labeled with a StockTwits logo adjacent to the
+message or stream. Logos and buttons are available via our logo page. Whenever possible, StockTwits logos should link
+to <a href="http://stocktwits.com">http://stocktwits.com</a>.</li>
+</ol>
+
 <h1 id="authentication">Authentication</h1>
 
 <p>StockTwits uses OAuth 2.0 for authentication and authorization.
@@ -225,7 +432,7 @@ verification code.</p>
 <blockquote>
 <p>This code can then be exchanged for an access token.</p>
 </blockquote>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/oauth/token /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/oauth/token <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -d <span class="s1">'{"client_id": "&lt;client id&gt;", "client_secret": "&lt;client secret&gt;", "code": "&lt;code&gt;", "grant_type": "authorization_code", "redirect_uri": "http://www.example.com"}'</span>
@@ -324,7 +531,7 @@ of the authenticated user.</p>
 <blockquote>
 <p>Authenticated requests can be performed by attaching the access token as the authorization header</p>
 </blockquote>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/friends.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/friends.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -749,7 +956,7 @@ The extended metadata in the API response below is only available through <a hre
 </tbody></table>
 
 <h2 id="friends-stream">Friends Stream</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/friends.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/friends.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -925,7 +1132,7 @@ The extended metadata in the API response below is only available through <a hre
 </tbody></table>
 
 <h2 id="mentions-stream">Mentions Stream</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/mentions.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/mentions.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -1094,7 +1301,7 @@ public replies</p>
 </tbody></table>
 
 <h2 id="watchlist-streams">Watchlist Streams</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/watchlist/:id.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/watchlist/:id.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -1281,7 +1488,7 @@ list of all the symbols a user is watching.</p>
 </tbody></table>
 
 <h2 id="all-stream">All Stream</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/all.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/all.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -1768,7 +1975,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tbody></table>
 
 <h2 id="equities-stream">Equities Stream</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/equities.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/equities.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -2062,7 +2269,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tbody></table>
 
 <h2 id="forex-stream">Forex Stream</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/forex.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/forex.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -2305,7 +2512,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tbody></table>
 
 <h2 id="futures-stream">Futures Stream</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/futures.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/futures.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -2601,7 +2808,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tbody></table>
 
 <h2 id="private-companies-stream">Private Companies Stream</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/private_companies.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/private_companies.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -3066,8 +3273,8 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tbody></table>
 
 <h2 id="symbols-stream">Symbols Stream</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/symbols.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/streams/symbols.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
   -d <span class="s1">'symbols=AAPL,TSLA,NFLX'</span>
 </code></pre>
 
@@ -3428,7 +3635,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 <h1 id="search">Search</h1>
 
 <h2 id="search">Search</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search.json <span class="se">\</span>
   -d <span class="s1">'q=stocktwits'</span>
 </code></pre>
 
@@ -3601,7 +3808,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tbody></table>
 
 <h2 id="symbols">Symbols</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search/symbols.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search/symbols.json <span class="se">\</span>
   -d <span class="s1">'q=AAPL'</span>
 </code></pre>
 
@@ -3668,7 +3875,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tbody></table>
 
 <h2 id="users">Users</h2>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search/users.json /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search/users.json <span class="se">\</span>
   -d <span class="s1">'q=stocktwits'</span>
 </code></pre>
 
@@ -3868,17 +4075,18 @@ into your application.</p>
 <blockquote>
 <p>Note that the $ character in the message may need to be escaped (\$) to prevent the shell from interpolating an environment variable.</p>
 </blockquote>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/create.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/create.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
   -d <span class="s1">'body=Creating a new message'</span>
 </code></pre>
 
 <blockquote>
 <p>Uploading a chart (The chart parameter may also be a URL)</p>
 </blockquote>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/create.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
-  -F <span class="nv">body</span><span class="o">=</span><span class="s2">"Creating a new message with a chart. </span><span class="se">\$</span><span class="s2">ticker"</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/create.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  -F <span class="nv">body</span><span class="o">=</span><span class="s2">"Creating a new message with a chart. </span><span class="se">\$</span><span class="s2">ticker"</span> <span class="se">\</span>
   -F <span class="nv">chart</span><span class="o">=</span>@/path/to/a/local/image/file.jpg
 </code></pre>
 
@@ -4079,8 +4287,8 @@ into your application.</p>
 <h2 id="like">Like</h2>
 
 <p>Like a message on StockTwits as the authenticating user.</p>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/like.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/like.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
   -d <span class="s1">'id=60975379'</span>
 </code></pre>
 
@@ -4135,8 +4343,9 @@ into your application.</p>
 <h2 id="unlike">Unlike</h2>
 
 <p>Unlike a message on StockTwits as the authenticating user.</p>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/unlike.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/unlike.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
   -d <span class="s1">'id=60975379'</span>
 </code></pre>
 
@@ -4193,8 +4402,8 @@ into your application.</p>
 <h2 id="blocking">Blocking</h2>
 
 <p>Returns the list of users that were blocked by the authenticating user.</p>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/blocking.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/blocking.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
 <blockquote>
@@ -4289,8 +4498,8 @@ into your application.</p>
 <h2 id="muting">Muting</h2>
 
 <p>Returns the list of users that were muted by the authenticating user.</p>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/muting.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/muting.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
 <blockquote>
@@ -4385,8 +4594,8 @@ into your application.</p>
 <h2 id="following">Following</h2>
 
 <p>Returns the list of users the authenticated user is following.</p>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/following.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/following.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
 <blockquote>
@@ -4481,8 +4690,8 @@ into your application.</p>
 <h2 id="followers">Followers</h2>
 
 <p>Returns the list of users the authenticated user is following.</p>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/following.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/following.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
 <blockquote>
@@ -4579,8 +4788,9 @@ into your application.</p>
 <h2 id="create">Create</h2>
 
 <p>This is to publicly follow a user, create a friendship and receive all messages from this user.</p>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/friendships/create/&lt;user_id&gt;.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/friendships/create/&lt;user_id&gt;.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
 <blockquote>
@@ -4621,7 +4831,7 @@ into your application.</p>
 </tr>
 <tr>
 <td>Pagination?</td>
-<td>NO</td>
+<td>No</td>
 </tr>
 <tr>
 <td>HTTP Methods:</td>
@@ -4646,8 +4856,9 @@ into your application.</p>
 <h2 id="destroy">Destroy</h2>
 
 <p>This it to unfollow a user and end the friendship and no longer receive the users messages.</p>
-<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/friendships/destroy/&lt;user_id&gt;.json /
-  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/friendships/destroy/&lt;user_id&gt;.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
 <blockquote>
@@ -4688,7 +4899,7 @@ into your application.</p>
 </tr>
 <tr>
 <td>Pagination?</td>
-<td>NO</td>
+<td>No</td>
 </tr>
 <tr>
 <td>HTTP Methods:</td>
@@ -4710,45 +4921,1325 @@ into your application.</p>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+<h1 id="watchlists">Watchlists</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<h2 id="watchlists">Watchlists</h2>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>Returns a list of private watch lists for the authenticating user.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"watchlists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">36477</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile Watchlist"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T21:59:30Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-06-26T02:03:39Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38398</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my picks"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T21:59:46Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-10T22:03:24Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>None</p>
+
+<h2 id="create">Create</h2>
+
+<p>This creates a private watch list for the authenticating user. A watch list will consist of many ticker symbols.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists/create.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  -d <span class="s1">'name=new_watch_list'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"watchlist"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38509</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_watch_list"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:09:25Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:09:25Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The name of the new watch list. (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="update">Update</h2>
+
+<p>This update the contents of the specified watch list. Required parameters are the <code class="prettyprint">id</code> of the watch list that is to be
+updated and the new <code class="prettyprint">name</code> of the watch list.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists/update/&lt;watchlist_id&gt;.json <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  -d <span class="s1">'name=new_watchlist_name'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"watchlist"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38509</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_watchlist_name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:09:25Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:09:25Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>PUT</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the watch list to be updated (Required)</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the new watch list. (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="destroy">Destroy</h2>
+
+<p>This deletes the specified watch list. Required parameter is the ID of the watch list to be deleted, this is not the
+name of the watch list.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists/destroy/&lt;watchlist_id&gt;.json <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response will be a 204 No Content</p>
+</blockquote>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>DELETE</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the watch list to be destroyed (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="show">Show</h2>
+
+<p>Returns the the list of ticker symbols in a specified watch list for the authenticating user. Required parameter is the
+<code class="prettyprint">id</code> of the watch list, not the <code class="prettyprint">name</code> of the watch list.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists/show/&lt;watchlist_id&gt;.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"watchlist"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38398</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my picks"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:26:20Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-10T22:03:24Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7871</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FB"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Facebook"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2044</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOOG"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google Inc."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the watch list to be shown (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-symbols">Add Symbols</h2>
+
+<p>This adds a ticker symbol or symbols to a specified watch list. Required parameters are the <code class="prettyprint">id</code> of the watch list and
+the symbol or symbols to be added.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists/&lt;watchlist_id&gt;/symbols/create.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  -d <span class="s1">'symbols=AAPL'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the watch list to add to. (Required)</td>
+</tr>
+<tr>
+<td>symbols</td>
+<td>The ticker symbol or comma separated symbols that are to be added to the specified watch list. (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="remove-symbols">Remove Symbols</h2>
+
+<p>Remove a symbol from the specified watch list. You must pass the <code class="prettyprint">id</code> of the watch list to which you want to add the
+symbol, not the name of the watch list.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists/&lt;watchlist_id&gt;/symbols/destroy.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  -d <span class="s1">'symbols=AAPL'</span>
+</code></pre>
+
+<blockquote>
+<p>Response will be an array of symbols that have been removed</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the watch list to remove symbols from. (Required)</td>
+</tr>
+<tr>
+<td>symbols</td>
+<td>The ticker of the symbol that you want to remove from the specified watch list. (Required)</td>
+</tr>
+</tbody></table>
+
+<h1 id="blocks">Blocks</h1>
+
+<h2 id="create">Create</h2>
+
+<p>This blocks a user so the authenticating user will not receive message from the specified user. Required parameter is
+the <code class="prettyprint">user_id</code> of the user to block, not the username.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/blocks/create/&lt;user_id&gt;.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">176389</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jimmychanos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim Chanos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/images/default_avatar_thumb.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2016-07-25"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user you want to block (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="destroy">Destroy</h2>
+
+<p>This unblocks a user so the authenticating user can reveive messages from the specified user. required parameter is the
+<code class="prettyprint">user_id</code> of the user to unblock, not the username.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/blocks/destroy/&lt;user_id&gt;.json <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">176389</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jimmychanos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim Chanos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/images/default_avatar_thumb.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2016-07-25"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>DELETE</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user you want to unblock (Required)</td>
+</tr>
+</tbody></table>
+
+<h1 id="mutes">Mutes</h1>
+
+<h2 id="create">Create</h2>
+
+<p>This mutes a user so the authenticating user will no longer see the muted user in streams. Authenticated user will
+still be able to view the profile of the muted user. Required parameter is the <code class="prettyprint">user_id</code> of the user to mute, not the
+username.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/mutes/create/&lt;user_id&gt;.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">176389</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jimmychanos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim Chanos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/images/default_avatar_thumb.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2016-07-25"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user you want to mute (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="destroy">Destroy</h2>
+
+<p>This unmutes a user so the authenticating user can view messages from the specific users in streams. required parameter
+is the <code class="prettyprint">user_id</code> of the user to unmute, not the username.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/mutes/destroy/&lt;user_id&gt;.json <span class="se">\</span>
+  -X DELETE <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">176389</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jimmychanos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim Chanos"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/images/default_avatar_thumb.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2016-07-25"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>DELETE</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user you want to unmute (Required)</td>
+</tr>
+</tbody></table>
+
+<h1 id="account">Account</h1>
+
+<h2 id="verify">Verify</h2>
+
+<p>This verifies the credentials of a user. Useful for checking if authentication method is correct.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/account/verify.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eric Alford"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>None</p>
+
+<h2 id="update">Update</h2>
+
+<p>This updates the properties of the authenticating user&rsquo;s account.</p>
+
+<aside class="success">
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+</aside>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/account/update.json <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  -d <span class="s1">'name=New Name'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"followers"</span><span class="p">:</span><span class="w"> </span><span class="mi">166</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"following"</span><span class="p">:</span><span class="w"> </span><span class="mi">119</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ideas"</span><span class="p">:</span><span class="w"> </span><span class="mi">397</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"watchlist_stocks_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"like_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">398</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subscribers_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subscribed_to_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York, NY"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Director of Engineering at StockTwits."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"website_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.twitter.com/ericalford"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"trading_strategy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"assets_frequently_traded"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Equities"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"approach"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Momentum"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"holding_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Swing Trader"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"experience"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intermediate"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>PUT</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The full name of the account holder</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The email address for the account holder</td>
+</tr>
+<tr>
+<td>username</td>
+<td>The username for the account holder</td>
+</tr>
+</tbody></table>
+
+<h1 id="trending">Trending</h1>
+
+<h2 id="symbols">Symbols</h2>
+
+<p>Returns a list of all the trending symbols at the moment requested. Trending symbols include equities and non-equities
+like futures and forex. These are updated in 5-minute intervals.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/trending/symbols.json
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ES_F"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E-Mini S&amp;P 500 Futures"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8660</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TSLA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tesla Motors, Inc."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Default and max limit is 30. This limit must be a number under 30.</td>
+</tr>
+</tbody></table>
+
+<h2 id="equities">Equities</h2>
+
+<p>Returns a list of all the trending equity symbols at the moment requested. Trending equities have to have a price over
+$5. These are updated in 5 minute intervals.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/trending/symbols/equities.json
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ES_F"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E-Mini S&amp;P 500 Futures"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8660</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TSLA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tesla Motors, Inc."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Default and max limit is 30. This limit must be a number under 30.</td>
+</tr>
+</tbody></table>
+
+<h1 id="deletions">Deletions</h1>
+
+<h2 id="messages">Messages</h2>
+
+<p>Returns a list of messages deleted recently. This is to be used in conjunction with firehose access.</p>
+
+<aside class="success">
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+</aside>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/deletions/messages.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cursor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"since"</span><span class="p">:</span><span class="w"> </span><span class="mi">111868</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">111769</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"more"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">111868</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9092561</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:29:04Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">111867</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9093785</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:28:28Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">111866</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9093714</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:16:05Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">111865</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9093260</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:03:41Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">111864</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9093113</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T22:03:37Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">111863</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9093142</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T21:28:55Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since</td>
+<td>Returns results with an ID greater than (more recent than) the specified ID.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>Returns results with an ID less than (older than) or equal to the specified ID.</td>
+</tr>
+</tbody></table>
+
+<h2 id="users">Users</h2>
+
+<p>Returns a list of user accounts deleted recently. This is to be used in conjunction with firehose access.</p>
+
+<aside class="success">
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+</aside>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/deletions/users.json <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cursor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"since"</span><span class="p">:</span><span class="w"> </span><span class="mi">924</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">825</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"more"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">924</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">147524</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SSX999"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T18:22:53Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">923</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">176669</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jhardiejr2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T14:24:59Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">922</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">130685</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dp06x"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T14:18:15Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">921</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">158870</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniaconcha"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T14:08:41Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">920</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102850</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sshin1212"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T14:07:21Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">919</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">59050</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FXTrader"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-13T13:49:00Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Default and max limit is 30. This limit must be a number under 30.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="response-amp-error-codes">Response &amp; Error Codes</h1>
+
+<p>The StockTwits API attempts to return appropriate HTTP status codes for every request. The following table describes
+the codes which may appear when working with the API:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>204</td>
+<td>Success. No content returned</td>
+</tr>
 <tr>
 <td>400</td>
 <td>Bad Request &ndash; Your request sucks</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Unauthorized &ndash; The access toke provided is invalid or it is missing</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; The access token provided lacks the corresponding permission scope</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+<td>Not Found</td>
 </tr>
 <tr>
 <td>418</td>
@@ -4756,7 +6247,7 @@ into your application.</p>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests &ndash; You&rsquo;ve been <a href='/?shell#rate-limiting'>rate limited</a></td>
 </tr>
 <tr>
 <td>500</td>
@@ -4764,9 +6255,170 @@ into your application.</p>
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Gateway Timeout</td>
 </tr>
 </tbody></table>
+
+          <h1 id="terms-amp-conditions">Terms &amp; Conditions</h1>
+
+<p>Last Updated on October 3, 2014</p>
+
+<p>This Application Programming Interface License Agreement (the “Agreement”) dated as of the date of acceptance by means
+of a click-through, is made by and among Stocktwits, Inc, a Delaware Corporation (“Stocktwits”) and the user designated
+by the registration data provided herewith (“Licensee”).</p>
+
+<p>THIS LICENSE AGREEMENT GOVERNS YOUR USE OF THE STOCKTWITS APPLICATION PROGRAMMING INTERFACE (API) PROTOCOLS AND ACCESS
+KEY PROVIDED TO YOU BY STOCKTWITS (REFERRED AS THE “STOCKTWITS API”) IN ORDER TO ACCESS FUNCTIONALITY OF THE STOCKTWITS
+WEBSITE OR RECEIVE OR TRANSMIT DATA TO OR FROM THE STOCKTWITS WEBSITE (REFERRED TO AS THE “STOCKTWITS DATA”) .</p>
+
+<p>READ THIS LICENSE CAREFULLY BEFORE CLICKING ON “I ACCEPT”. IF YOU DO NOT AGREE WITH THESE TERMS, THEN CLICK “CANCEL”.
+YOUR CONTINUED USE OF THE STOCKTWITS API TO OPERATE ANY FUNCTIONALITY OF THE STOCKTWITS WEBSITE OR ACCESS ANY
+STOCKTWITS DATA SHALL CONSTITUTE YOUR ACCEPTANCE OF THE TERMS AND CONDITIONS OF THIS AGREEMENT INCLUDING ANY CHANGES
+THAT STOCKTWITS MAKES TO SUCH TERMS AND CONDITIONS PRIOR TO SUCH CONTINUED USE.</p>
+
+<p>YOU REPRESENT AND WARRANT THAT YOU ARE AT LEAST 18 YEARS OLD.</p>
+
+<p>THE STOCKTWITS API, STOCKTWITS DATA AND STOCKTWITS WEBSITE ARE PROVIDED AS IS. YOU AGREE THAT ANY USE OF THE STOCKTWITS
+API, STOCKTWITS DATA AND STOCKTWITS WEBSITE IS AT LICENSEE’S (YOUR) SOLE AND ABSOLUTE RISK. IN NO EVENT, WILL
+STOCKTWITS, INC BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OF OR INABILITY TO USE THE STOCKTWITS API, STOCKTWITS DATA OR STOCKTWITS WEBSITE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES. SPECIFICALLY, LICENSEE (YOU) AGREE THAT STOCKTWITS, INC IS NOT RESPONSIBLE FOR ANY DAMAGES
+INCURRED BY LICENSEE (YOU) INCLUDING, BUT NOT LIMITED TO, THOSE INCURRED AS A RESULT OF LOST PROFITS OR REVENUE, LOSS
+OF REPUTATION, DEFAMATION, COPYRIGHT OR PATENT INFRINGEMENT, LOSS OF DATA, DISCLOSURE OF DATA, OR CLAIMS BY THIRD
+PARTIES, OR FOR OTHER COSTS OR CLAIMS.</p>
+
+<p>LICENSE: Subject to compliance with all of the terms of this license, Stocktwits hereby grants Licensee a
+non-exclusive, paid-up, royalty-free, non-transferrable right and license, throughout the world, without the right to
+sublicense to operate the Stocktwits API and to integrate one or more parts of the Stocktwits API into Licensee’s
+website, mobile or desktop application (the “Application”) solely for use by Licensee’s end users, and to display the
+Stocktwits Data on such Application, but not for any kind of re-distribution of the Stocktwits Data, whether
+instantaneous or as copies of archived data, whether whole or in part.</p>
+
+<p>Subject to compliance with all of the terms of this license, Stocktwits, Inc., hereby grants Licensee a limited,
+at-will, non-exclusive, non-transferrable license without the right to sublicense to (i) display on Licensee’s
+Application the Stoctwits trademark and logo and (ii) use, copy, transmit and operate the components of the
+stocktwits-text-js code library solely in order that the Application display messages in accordance with the Content
+Display Requirements. Use of the Stocktwits trademark and logo as well as all or part of the stocktwits-text-js code
+library is at your sole and absolute risk. Any goodwill arising from use of the Stocktwits trademark or logo shall
+inure to the sole benefit of Stocktwits.</p>
+
+<p>Any rights not expressly granted hereunder are reserved by Stocktwits. You agree that there are no implied rights
+granted by this Agreement.</p>
+
+<p>YOU AGREE THAT YOU SHALL NOT ATTEMPT TO ENTER PARTS OF THE STOCKTWITS WEBSITE THAT YOU ARE NOT AUTHORIZED TO ENTER,
+TAMPER WITH THE STOCKTWITS WEBSITE, ATTEMPT TO ACCESS ANY DATA YOU ARE NOT AUTHORIZED TO ACCESS, ATTEMPT TO EXERCISE
+ANY API OTHER THAN THAT LICENSED HEREUNDER, ATTEMPT TO DISABLE OR IMPAIR THE STOCKTWITS WEBSITE, OR USE THE STOCKTWITS
+WEBSITE TO COMMIT ANY CRIMINAL ACT OR INTENTIONAL INJURY OF ANY THIRD PARTY.</p>
+
+<p>LICENSEE APPLICATION REQUIREMENTS: The rights granted in the Stocktwits API and Stocktwits Data are subject to the
+Licensee’s Application meeting the following requirements:</p>
+
+<ul>
+<li>Licensee’s Application shall display all messages returned by the Stocktwits API in their entirety, in the order they
+are received and not selectively display or delete messages from the data stream;</li>
+<li>Licensee’s Application shall not block, re-order or otherwise alter any messages that may be promotional or paid
+placements within the streams;</li>
+<li>Licensee’s Application shall display all messages in compliance with Stocktwits’ Content Display Requirements,
+available here: http://stocktwits.com/developers/docs/display_requirement</li>
+<li>Licensee’s Application shall clearly identify each Stocktwits message or message stream as sourced from StockTwits by
+using the Stocktwits trademark in accordance with the Content Display Requirements;</li>
+<li>Licensee’s Application may cache or store Stocktwits Data for the operation of its service, however any messages
+contained within the Stocktwits Data cannot be stored for more than 30 days for any purpose;</li>
+<li>If Licensee’s Application displays Stocktwits Data as a message stream, then the Licensee Application shall not
+co-mingle any similar native or third-party messages with the Stocktwits Data stream;</li>
+<li>If Licensee Application displays Stocktwits Data as individual messages and also shows similar native or third-party
+messages, Stocktwits Data must be clearly identified as coming from Stocktwits, by using the Stocktwits trademark in
+accordance with the Content Display Requirements;</li>
+<li>If Licensee’s Application presents its end-users an option for the end-user to sign in with Stocktwits’ credentials
+and/or send content to that end-user’s Stocktwits account, and Licensee’s Application also provides those same
+capabilities for additional third party platforms, the display of the option to use Stocktwits must be presented with
+at least the same prominence as any other platform;</li>
+<li>Licensee must have adopted and promulgated a privacy policy that it abides by and it must meet the privacy laws of the
+U.S., Canada and the European Union;</li>
+</ul>
+
+<p>RESTRICTIONS ON THE LICENSEE: The rights granted hereunder are conditioned on the Licensee, Licensee’s Application and
+Licensee’s end-users abiding by the following restrictions:</p>
+
+<ul>
+<li>Licensee shall not redistribute, resell, export, transmit or sublicense any of the Stocktwits Data or otherwise provide
+access to the Stocktwits Website to any third party, except for transmission to the end-users of Licensee’s Application
+that are in compliance with the Stocktwits Terms of Use for display to such end-user.</li>
+<li>Licensee shall not create, disclose, sell, or display any information derived by analysis of the Stocktwits Data or
+the Stocktwits API, including, without limitation, any message trend information, sentiment information, Stocktwits
+messaging performance or any summaries of the foregoing or any other kind of algorithmic products using the Stocktwits
+Data or Stocktwits Website ;</li>
+<li>Licensee shall not use the Stocktwits Data or Stocktwits API to compete with StockTwits including, without limitation
+using the Stocktwits API and Stocktwits Data to offer a product or service consisting primarily of Stocktwits Website
+functionality, as determined by Stocktwits in its sole and absolute discretion;</li>
+<li>Licensee shall and the users of Licensee’s Application shall enter into and comply with both the House Rules and
+Stocktwits Terms of Use, available here: <a href='http://stocktwits.com/rules'>http://stocktwits.com/rules</a> and
+<a href='http://stocktwits.com/terms'>http://stocktwits.com/terms</a></li>
+<li>Licensee shall not use the Stocktwits API to transmit any messages that are primarily commercial solicitations into
+the Stocktwits message stream;</li>
+<li>Licensee shall not violate any Federal rule or guideline or any other applicable law regarding the transmission of
+messages that are commercial advertising, offers or solicitations of any kind.</li>
+<li>Licensee shall not and shall not permit Licensee’s users to use the Stocktwits API or Stocktwits Data to violate any
+Federal, State security law or the law of any other jurisdiction that governs trading in securities;</li>
+<li>Licensee shall not alter, modify or adapt the Stocktwits Website, including but not limited to, translating,
+decompiling, disassembling, reverse engineering, or creating derivative works of the Stocktwits Website;</li>
+<li>Licensee and Licensee’s end-users shall not transmit into the Stocktwits message stream any (i) defamatory message;
+(ii) harassing or pornographic message; (iii) computer virus, keylogger, bot or other malicious code or link to such
+code, (iv) any data or content that infringes the copyright of any third party or (v) message containing misleading or
+incorrect information about a security that Licensee knows or has a reasonable suspicion is designed to induce one or
+more third parties to make a security trade in such security.</li>
+</ul>
+
+<p>TERMINATION: Stocktwits and Licensee may terminate this Agreement at any time, for any reason or no reason. This
+license and Licensee’s right to use the Stocktwits API, Stocktwits Website and Stocktwits Data shall automatically
+terminate and revert in the event Licensee, Licensee’s Application or any of Licensee’s end-users fail to comply with
+any provision of this Agreement. Upon termination, Stocktwits shall have the right to terminate the Licensee’s
+Stocktwits account and delete any data contained in the account.</p>
+
+<p>ACKNOWLEDGMENT: Licensee acknowledges that: (i) Stocktwits is under no obligation to repair, operate, maintain or
+continue to operate the Stocktwits API or provide the Stocktwits Data and that these functions may fail from time to
+time, (ii) Stocktwits may alter the Stocktwits API from time to time, which may cause malfunction of Licensee’s
+Application and (iii) that Licensee is solely responsible to revise or maintain their Application in order that it is
+compatible with any revisions of the Stocktwits API or Stocktwits Website.</p>
+
+<p>REPRESENTATION: The person assenting to this Application Programming Interface License Agreement represents and
+warrants that it has the right and power to enter into this Agreement and that all of the registration information
+provided to Stocktwits is accurate.</p>
+
+<p>MISCELLANEOUS: The following provisions shall apply to this Agreement and survive termination of this Agreement:</p>
+
+<p>This Agreement shall be construed under the laws of the State of California, without the application of its conflict of
+law rules or principles. Licensee agrees that the exclusive venue for any dispute arising hereunder is the state and
+federal courts located in San Diego County, California, USA. Licensee waives any claim that such a venue is an
+inconvenient forum.</p>
+
+<p>Licensee agrees to indemnify and hold Stocktwits, its subsidiaries and affiliates, and each of their members,
+shareholders, managers, directors, officers, agents, contractors, partners and employees, harmless from and against any
+loss, liability, claim, demand, damages, costs and expenses, including reasonable attorney&rsquo;s fees, arising out of or in
+connection with Licensee’s use of the Stocktwits API, any content Licensee or Licensee’s end-users post or share on or
+through Stocktwits, Licensee’s user’s conduct in connection with the use of the Stocktwits API or Stocktwits Website,
+or any breach of the terms of this Agreement. This indemnity shall survive any termination or cessation of use by
+Licensee or Licensee’s end-users of the Stocktwits API or Stocktwits Website.</p>
+
+<p>Licensee shall neither assign nor delegate its rights or obligations hereunder in whole or in part to any person
+without the prior written approval of Stocktwits. Any purported assignment in breach of this agreement is and shall be
+null and void. This Agreement shall be binding upon and shall inure to the benefit of the parties and their respective
+successors and permitted assigns. This agreement contains the entire understanding of the parties hereto relating to
+the subject matter hereof and cannot be changed except by an instrument signed by an officer of Stocktwits and an
+officer of Licensee. A waiver by either party of any term or condition of this Agreement in any instance shall not be
+deemed or construed as a waiver of such term or condition for the future, or of any subsequent breach thereof. All
+remedies, rights, undertakings, obligations and agreements contained in this Agreement shall be cumulative and none of
+them shall be in limitation of any other remedy, right, undertaking, obligation or agreement of either party. If any
+term, provision, covenant or restriction of this Agreement is held by a court of competent jurisdiction to be invalid,
+void or unenforceable, the remainder of the terms, provisions, covenants and restriction of this Agreement shall remain
+in full force and effect and shall in no way be affected, impaired or invalidated. Licensee agrees that breach of this
+Agreement by Licensee will cause irreparable harm to Stocktwits, for which monetary damage would be difficult to
+ascertain or insufficient to remedy, thereby entitling Stocktwits to immediate, injunctive relief without the
+requirement of posting bond or paying costs.</p>
 
       </div>
       <div class="dark-box">
