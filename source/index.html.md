@@ -2745,3 +2745,920 @@ since | Returns results with an ID greater than (more recent than) the specified
 max | Returns results with an ID less than (older than) or equal to the specified ID. (Mutually exclusive with since)
 limit | Default and max limit is 30. This limit must be a number under 30.
 filter | Filter messages by links or charts. (Optional)
+
+# Search
+
+## Search
+
+```shell
+curl https://api.stocktwits.com/api/2/search.json /
+  -d 'q=stocktwits'
+```
+
+> Response
+
+```json
+{
+  "results":[
+    {
+      "type":"symbol",
+      "title":"StockTwits Education",
+      "symbol":"STUDY",
+      "exchange":"MISC",
+      "id":8677
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits",
+      "symbol":"STWIT",
+      "exchange":"PRIVATE",
+      "id":7989
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits Predictions",
+      "symbol":"PREDICT",
+      "exchange":"MISC",
+      "id":9217
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits Social Web Index",
+      "symbol":"SWEB",
+      "exchange":"MISC",
+      "id":9690
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits IR Demo Corporation",
+      "symbol":"DEMO",
+      "exchange":"MISC",
+      "id":9696
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits NCAA Bracket Challenge",
+      "symbol":"NCAA",
+      "exchange":"MISC",
+      "id":9579
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits Roast",
+      "symbol":"ROAST",
+      "exchange":"MISC",
+      "id":9439
+    },
+    {
+      "type":"user",
+      "name":"StockTwits",
+      "username":"StockTwits",
+      "id":170,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/170/thumb-1409235653.png?1409235653",
+      "official":true
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Data",
+      "username":"StockTwitsData",
+      "id":206492,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/206492/thumb-1357904126.png?1357904126",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Charts",
+      "username":"chartly",
+      "id":8648,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/8648/thumb-1344904673.png?1344904673",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Help Desk",
+      "username":"StockTwitsHelp",
+      "id":8462,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/8462/thumb-1412619441.png?1412619441",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits TV",
+      "username":"StockTwitsTV",
+      "id":5245,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/5245/thumb-1270047545.png?1270047545",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits University",
+      "username":"StockTwitsU",
+      "id":21051,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/21051/thumb-1439311816.png?1439311816",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"John Melloy",
+      "username":"stocktwitsjohn",
+      "id":269009,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/269009/thumb-1381334240.png?1381334240",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Network",
+      "username":"STNet",
+      "id":25677,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/25677/thumb-1286811272.png?1286811272",
+      "official":false
+    }
+  ]
+}
+```
+
+This allows an API application to search for a symbol or user. 30 Results will be a combined list of symbols and users.
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | No
+Requires Partner-Level Access? | No
+Pagination? | 	No
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+q | The symbol or user string that you want to search for (Required)
+
+## Symbols
+
+```shell
+curl https://api.stocktwits.com/api/2/search/symbols.json /
+  -d 'q=AAPL'
+```
+
+> Response
+
+```json
+{
+  "results":[
+    {
+      "type":"symbol",
+      "title":"Apple Inc.",
+      "symbol":"AAPL",
+      "exchange":"NASDAQ",
+      "id":686
+    }
+  ]
+}
+```
+
+This allows an API application to search for a symbol directly. 30 Results will return only ticker symbols.
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | No
+Requires Partner-Level Access? | No
+Pagination? | 	No
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+q | The symbol that you want to search for (Required)
+
+## Users
+
+```shell
+curl https://api.stocktwits.com/api/2/search/users.json /
+  -d 'q=stocktwits'
+```
+
+> Response
+
+```json
+{
+  "results":[
+    {
+      "type":"user",
+      "name":"StockTwits",
+      "username":"StockTwits",
+      "id":170,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/170/thumb-1409235653.png?1409235653",
+      "official":true
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Data",
+      "username":"StockTwitsData",
+      "id":206492,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/206492/thumb-1357904126.png?1357904126",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Charts",
+      "username":"chartly",
+      "id":8648,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/8648/thumb-1344904673.png?1344904673",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Help Desk",
+      "username":"StockTwitsHelp",
+      "id":8462,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/8462/thumb-1412619441.png?1412619441",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits TV",
+      "username":"StockTwitsTV",
+      "id":5245,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/5245/thumb-1270047545.png?1270047545",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits University",
+      "username":"StockTwitsU",
+      "id":21051,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/21051/thumb-1439311816.png?1439311816",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"John Melloy",
+      "username":"stocktwitsjohn",
+      "id":269009,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/269009/thumb-1381334240.png?1381334240",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Network",
+      "username":"STNet",
+      "id":25677,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/25677/thumb-1286811272.png?1286811272",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"The StockTwits Squad Car",
+      "username":"STsquadcar",
+      "id":81704,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/81704/thumb-1306871723.png?1306871723",
+      "official":true
+    },
+    {
+      "type":"user",
+      "name":"StockTwits FX",
+      "username":"StockTwitsFX",
+      "id":19569,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/19569/thumb-1280172302.png?1280172302",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StocktwitsHater",
+      "username":"StocktwitsHater",
+      "id":495,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/495/thumb-1319565281.png?1319565281",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Pump Patrol",
+      "username":"ST_PumpPatrol",
+      "id":479628,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/479628/thumb-1425506727.png?1425506727",
+      "official":true
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Awesome!",
+      "username":"STawesome",
+      "id":37943,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/37943/thumb-1303909414.png?1303909414",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits IR",
+      "username":"StockTwitsIR",
+      "id":35843,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/35843/thumb-1320352066.png?1320352066",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Links",
+      "username":"StockTwitsLinks",
+      "id":222797,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/222797/thumb-1364493882.png?1364493882",
+      "official":false
+    }
+  ]
+}
+```
+
+This allows an API application to search for a user directly. 30 Results will only return users.
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | No
+Requires Partner-Level Access? | No
+Pagination? | 	No
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+q | The user that you want to search for (Required)
+
+# Messages
+
+## Create
+
+Create a StockTwits message. To upload a chart to accompany the message, pass a file using the `chart` parameter.
+The API will check that the character count is under 140 and prevent duplicate message postings.
+<a href='#'>Learn more about parameters and character counting.</a>
+
+The reposonse returned on creating a message is a great way to use StockTwits context with content sent to another
+non-finacially focused social network such as Facebook, LinkedIn or Twitter.
+Because these other platforms aren't as investor-focused as StockTwits, they may lack the context like price or chart.
+Sending the response's body will allow the user of those other networks access to the financial context of the
+message with a link back to the appropriate page.
+
+The Message ID can be used to create your own link to the message as a landing page.
+This comes in handy in the case of a Chart where you might not want to create your own webpage or integrate the chart
+into your application.
+
+> Note that the $ character in the message may need to be escaped (\$) to prevent the shell from interpolating an environment variable.
+
+```shell
+curl https://api.stocktwits.com/api/2/messages/create.json /
+  -H 'Authorization: Bearer <access_token>' /
+  -d 'body=Creating a new message'
+```
+
+> Uploading a chart (The chart parameter may also be a URL)
+
+```shell
+curl https://api.stocktwits.com/api/2/messages/create.json /
+  -H 'Authorization: Bearer <access_token>' /
+  -F body="Creating a new message with a chart. \$ticker" /
+  -F chart=@/path/to/a/local/image/file.jpg
+```
+
+> Response
+
+```json
+{
+  "message": {
+    "id": 60975379,
+    "body": "Creating a new message with a chart. $ticker",
+    "created_at": "2016-08-19T15:15:48Z",
+    "user": {
+      "id": 369117,
+      "username": "ericalford",
+      "name": "Eric Alford",
+      "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+      "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+      "join_date": "2014-06-27",
+      "official": true
+    },
+    "symbols": [
+      {
+        "id": 686,
+        "symbol": "TICKER",
+        "title": "Ticker Inc."
+      }
+    ],
+    "reshares": {
+      "reshared_count": 0,
+      "user_ids": []
+    },
+    "mentioned_users": [],
+    "entities": {
+      "chart": {
+        "thumb": "http://charts.stocktwits.com/production/small_61042991.png",
+        "large": "http://charts.stocktwits.com/production/large_61042991.png",
+        "original": "http://charts.stocktwits.com/production/original_61042991.",
+        "url": "http://charts.stocktwits.com/production/original_61042991."
+      },
+      "sentiment": null
+    }
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	No
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+body | The body of the message. This parameter should be URL-encoded or entire request sent as multipart/form-data for all characters to submit properly. <a href='#'>Character count must be under 140.</a> (Required)
+in_reply_to_message_id | The ID this message replies to, if any. (Optional)
+chart | Path or URL to file to be uploaded. File Formats accepted: JPG, PNG, GIF under 2MB. Charts will count as 24 characters in the message body (Optional)
+sentiment | A sentiment label for the message. Acceptable values: bullish, bearish, neutral. Defaults to neutral. (Optional)
+
+## Show
+
+This shows the specified message details. This is used in a stand alone display.
+
+```shell
+curl https://api.stocktwits.com/api/2/messages/show/<message_id>.json
+```
+
+> Response
+
+```json
+{
+  "message": {
+    "id": 60975379,
+    "body": "Creating a new message with a chart. $ticker",
+    "created_at": "2016-08-19T15:15:48Z",
+    "user": {
+      "id": 369117,
+      "username": "ericalford",
+      "name": "Eric Alford",
+      "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+      "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+      "join_date": "2014-06-27",
+      "official": true
+    },
+    "symbols": [
+      {
+        "id": 686,
+        "symbol": "TICKER",
+        "title": "Ticker Inc."
+      }
+    ],
+    "reshares": {
+      "reshared_count": 0,
+      "user_ids": []
+    },
+    "mentioned_users": [],
+    "entities": {
+      "chart": {
+        "thumb": "http://charts.stocktwits.com/production/small_61042991.png",
+        "large": "http://charts.stocktwits.com/production/large_61042991.png",
+        "original": "http://charts.stocktwits.com/production/original_61042991.",
+        "url": "http://charts.stocktwits.com/production/original_61042991."
+      },
+      "sentiment": null
+    }
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | No
+Requires Partner-Level Access? | No
+Pagination? | 	No
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the message you want to show from the authenticating user (Required)
+conversation | 	Set to true to retrieve all meesages of the associated conversation. (Optional)
+
+## Like
+
+Like a message on StockTwits as the authenticating user.
+
+```shell
+curl https://api.stocktwits.com/api/2/messages/like.json /
+  -H 'Authorization: Bearer <access_token>' /
+  -d 'id=60975379'
+```
+
+> If successful, the response will be a 204 No Content
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	No
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the message you want to like for the authenticating user (Required)
+
+## Unlike
+
+Unlike a message on StockTwits as the authenticating user.
+
+```shell
+curl https://api.stocktwits.com/api/2/messages/unlike.json /
+  -H 'Authorization: Bearer <access_token>' /
+  -d 'id=60975379'
+```
+
+> If successful, the response will be a 204 No Content
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	No
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | ID of the message you want to unlike for the authenticating user (Required)
+
+# Graph
+
+## Blocking
+
+Returns the list of users that were blocked by the authenticating user.
+
+```shell
+curl https://api.stocktwits.com/api/2/graph/blocking.json /
+  -H 'Authorization: Bearer <access_token>' /
+```
+
+> Response
+
+```json
+{
+  "cursor":{
+    "more":true,
+    "since":1450610,
+    "max":295259
+  },
+  "users":[
+    {
+      "id":304332,
+      "username":"sorcefm",
+      "name":"chaz",
+      "avatar_url":"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png",
+      "join_date":"2014-01-23",
+      "official":false
+    },
+    {
+      "id":802670,
+      "username":"francine86",
+      "name":"Francine Bohnen",
+      "avatar_url":"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png",
+      "join_date":"2016-07-25",
+      "official":false
+    },
+    {
+      "id":295259,
+      "username":"Smurfologist",
+      "name":"Melvin Woods",
+      "avatar_url":"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
+      "join_date":"2013-12-31",
+      "official":false
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	Yes
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+since | Returns results with an ID greater than (more recent than) the specified ID.
+max | Returns results with an ID less than (older than) or equal to the specified ID.
+
+## Muting
+
+Returns the list of users that were muted by the authenticating user.
+
+```shell
+curl https://api.stocktwits.com/api/2/graph/muting.json /
+  -H 'Authorization: Bearer <access_token>' /
+```
+
+> Response
+
+```json
+{
+  "cursor":{
+    "more":true,
+    "since":1450610,
+    "max":295259
+  },
+  "users":[
+    {
+      "id":304332,
+      "username":"sorcefm",
+      "name":"chaz",
+      "avatar_url":"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png",
+      "join_date":"2014-01-23",
+      "official":false
+    },
+    {
+      "id":802670,
+      "username":"francine86",
+      "name":"Francine Bohnen",
+      "avatar_url":"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png",
+      "join_date":"2016-07-25",
+      "official":false
+    },
+    {
+      "id":295259,
+      "username":"Smurfologist",
+      "name":"Melvin Woods",
+      "avatar_url":"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
+      "join_date":"2013-12-31",
+      "official":false
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	Yes
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+since | Returns results with an ID greater than (more recent than) the specified ID.
+max | Returns results with an ID less than (older than) or equal to the specified ID.
+
+## Following
+
+Returns the list of users the authenticated user is following.
+
+```shell
+curl https://api.stocktwits.com/api/2/graph/following.json /
+  -H 'Authorization: Bearer <access_token>' /
+```
+
+> Response
+
+```json
+{
+  "cursor":{
+    "more":true,
+    "since":1450610,
+    "max":295259
+  },
+  "users":[
+    {
+      "id":304332,
+      "username":"sorcefm",
+      "name":"chaz",
+      "avatar_url":"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png",
+      "join_date":"2014-01-23",
+      "official":false
+    },
+    {
+      "id":802670,
+      "username":"francine86",
+      "name":"Francine Bohnen",
+      "avatar_url":"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png",
+      "join_date":"2016-07-25",
+      "official":false
+    },
+    {
+      "id":295259,
+      "username":"Smurfologist",
+      "name":"Melvin Woods",
+      "avatar_url":"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
+      "join_date":"2013-12-31",
+      "official":false
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	Yes
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+since | Returns results with an ID greater than (more recent than) the specified ID.
+max | Returns results with an ID less than (older than) or equal to the specified ID.
+
+## Followers
+
+Returns the list of users the authenticated user is following.
+
+```shell
+curl https://api.stocktwits.com/api/2/graph/following.json /
+  -H 'Authorization: Bearer <access_token>' /
+```
+
+> Response
+
+```json
+{
+  "cursor":{
+    "more":true,
+    "since":1450610,
+    "max":295259
+  },
+  "users":[
+    {
+      "id":304332,
+      "username":"sorcefm",
+      "name":"chaz",
+      "avatar_url":"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png",
+      "join_date":"2014-01-23",
+      "official":false
+    },
+    {
+      "id":802670,
+      "username":"francine86",
+      "name":"Francine Bohnen",
+      "avatar_url":"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png",
+      "join_date":"2016-07-25",
+      "official":false
+    },
+    {
+      "id":295259,
+      "username":"Smurfologist",
+      "name":"Melvin Woods",
+      "avatar_url":"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
+      "join_date":"2013-12-31",
+      "official":false
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	Yes
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+since | Returns results with an ID greater than (more recent than) the specified ID.
+max | Returns results with an ID less than (older than) or equal to the specified ID.
+
+# Friendships
+
+## Create
+
+This is to publicly follow a user, create a friendship and receive all messages from this user.
+
+```shell
+curl https://api.stocktwits.com/api/2/friendships/create/<user_id>.json /
+  -H 'Authorization: Bearer <access_token>' /
+```
+
+> Response
+
+```json
+{
+  "user": {
+    "id": 369117,
+    "username": "ericalford",
+    "name": "Eric Alford",
+    "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+    "join_date": "2014-06-27",
+    "official": true
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	NO
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The User ID of the StockTwits user you want to follow (Required)
+
+## Destroy
+
+This it to unfollow a user and end the friendship and no longer receive the users messages.
+
+```shell
+curl https://api.stocktwits.com/api/2/friendships/destroy/<user_id>.json /
+  -H 'Authorization: Bearer <access_token>' /
+```
+
+> Response
+
+```json
+{
+  "user": {
+    "id": 369117,
+    "username": "ericalford",
+    "name": "Eric Alford",
+    "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+    "join_date": "2014-06-27",
+    "official": true
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | 	NO
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The User ID of the StockTwits user you want to unfollow (Required)
