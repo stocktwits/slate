@@ -1,20 +1,18 @@
-# Errors
+# Response & Error Codes
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+The StockTwits API attempts to return appropriate HTTP status codes for every request. The following table describes
+the codes which may appear when working with the API:
 
-The Kittn API uses the following error codes:
-
-
-Error Code | Meaning
+Code | Meaning
 ---------- | -------
+200 | Success
+204 | Success. No content returned
 400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
+401 | Unauthorized -- The access toke provided is invalid or it is missing
+403 | Forbidden -- The access token provided lacks the corresponding permission scope
+404 | Not Found
 418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
+429 | Too Many Requests -- You've been <a href='/?shell#rate-limiting'>rate limited</a>
 500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+504 | Gateway Timeout

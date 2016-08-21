@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - errors
+  - terms_conditions
 
 search: true
 ---
@@ -91,6 +92,204 @@ If you or your application has been blacklisted and you think there has been an 
 
 If your application requires extended data or a higher rate limit, you may want to consider becoming a partner. Please contact our team for more information.
 
+#Parameters & Pagination
+
+##Parameters
+
+Some API endpoints take optional or required parameters. When making requests with parameters, values should be
+converted to <a href='http://en.wikipedia.org/wiki/UTF-8'>UTF-8</a> and URL encoded.
+
+##Pagintation
+
+> Example of a paginated request
+
+```shell
+curl https://api.stocktwits.com/api/2/streams/friends.json \
+  -H 'Authorization: Bearer <access_token>' \
+  -d 'max=60975380'
+```
+
+> Response
+
+```json
+{
+  "cursor": {
+    "more": true,
+    "since": 60975379,
+    "max": 54647845
+  },
+  "messages":[
+    {
+      "id": 60975379,
+      "body": "$AAPL going up from here",
+      "created_at": "2016-08-19T15:15:48Z",
+      "user": {
+        "id": 369117,
+        "username": "ericalford",
+        "name": "Eric Alford",
+        "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+        "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+        "join_date": "2014-06-27",
+        "official": true
+      },
+      "symbols": [
+        {
+          "id": 686,
+          "symbol": "AAPL",
+          "title": "Apple Inc."
+        }
+      ],
+      "conversation": {
+        "parent_message_id": 60974422,
+        "in_reply_to_message_id": 60975320,
+        "parent": false,
+        "replies": 5
+      },
+      "reshares": {
+        "reshared_count": 0,
+        "user_ids": []
+      },
+      "mentioned_users": [],
+      "entities": {
+        "sentiment": null
+      }
+    },
+    {
+      "id": 60899441,
+      "body": "$AAPL good read about earnings: http://www.media.com/aapl-post-earnings-analysis",
+      "created_at": "2016-08-18T17:20:47Z",
+      "user": {
+        "id": 1036,
+        "username": "zerobeta",
+        "name": "Justin Paterno",
+        "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+        "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+        "join_date": "2011-03-17",
+        "official": true
+      },
+      "symbols": [
+        {
+          "id": 686,
+          "symbol": "AAPL",
+          "title": "Apple Inc."
+        }
+      ],
+      "reshares": {
+        "reshared_count": 0,
+        "user_ids": []
+      },
+      "mentioned_users": [],
+      "entities": {
+        "sentiment": null
+      }
+    },
+    {
+      "id": 60822179,
+      "body": "Is this $AAPL rally just getting started?",
+      "created_at": "2016-08-17T19:30:34Z",
+      "user": {
+        "id": 134,
+        "username": "howardlindzon",
+        "name": "Howard Lindzon",
+        "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+        "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+        "join_date": "2010-06-27",
+        "official": true
+       },
+       "symbols": [
+         {
+           "id": 686,
+           "symbol": "AAPL",
+           "title": "Apple Inc."
+         }
+       ],
+      "conversation": {
+        "parent_message_id": 60785036,
+        "in_reply_to_message_id": 60785932,
+        "parent": false,
+        "replies": 2
+      },
+      "reshares": {
+        "reshared_count": 0,
+        "user_ids": []
+      },
+      "mentioned_users": [],
+      "entities": {
+        "sentiment": null
+      }
+    }
+  ]
+}
+```
+
+Clients may access a theoretical maximum of 800 messages via the cursor parameters for the API methods.
+Requests for more than the limit will result in a reply with a status code of 200 and an empty result in the format
+requested. StockTwits still maintains a database of all the messages sent by a user.
+However, to ensure performance of the site, this artificial limit is temporarily in place.
+
+There are two main parameters when paginating through results.
+
+**Since** will return results with an ID greater than (more recent than) the specified ID. Use this when getting new
+results or messages to a stream.
+
+**Max** will return results with an ID less than (older than) or equal to the specified ID. Use this to get older
+results or messages that have previously been published.
+
+#Counting Characters
+
+StockTwits limits all message lengths to 140 characters. URLs and images affect the length of the message. Any message
+over 140 characters will return an error response.
+
+##Character Encoding
+The StockTwits API supports UTF-8 encoding and any UTF-8 character counts as a single character. Please note that
+angle brackets ("<" and ">") are entity-encoded to prevent Cross-Site Scripting attacks for web-embedded consumers of
+JSON API output. The resulting encoded entities do count towards the 140 character limit. Symbols and characters
+outside of the standard ASCII range may be translated to HTML entities.
+
+**URL/Links** such as "http://stocktwits.com" will represent "23" characters in the message length. Links are defined as
+having a protocol such as "http://" or "https://".
+
+**Charts/Images** will represent "24" characters in the message length.
+
+#Content Display Requirements
+
+##Content
+
+1. Do not modify, edit or otherwise change the message content as passed through the API, except as needed to reformat
+for technical limitations of your specific service.
+2. All $TICKER cashtags within each message must be hyperlinked and point to the StockTwits ticker page at
+[http://www.stocktwits.com/symbol/](http://www.stocktwits.com/symbol/).
+3. All @mentions within each message must be hyperlinked and point to the StockTwits user page for the mentioned user
+at [http://www.stocktwits.com/](http://www.stocktwits.com/).
+4. Messages should be presented with a timestamp, either in absolute (May 1, 2012 3:30pm) or relative (1 hour ago)
+format. The timestamp should be linked to the message display page on StockTwits at
+[http://www.stocktwits.com/message/](http://www.stocktwits.com/message/).
+5. If you choose to display media objects passed within the API in your application; such as a chart image,
+the object must be hyperlinked and point to the message display page on StockTwits at
+[http://www.stocktwits.com/message/](http://www.stocktwits.com/message/).
+
+##Author and Attribution
+
+1. The StockTwits user’s name must be presented as the author of the content, using either the user’s StockTwits user
+name or user name and full name. The name should be linked to the user’s StockTwits profile page at
+[http://www.stocktwits.com/](http://www.stocktwits.com/).
+2. The user’s name should be presented in a way to distinguish it from the message content.
+3. Display of the user’s avatar is recommended, but not required. If displayed, the user’s avatar should also be linked
+to the StockTwits user page for the user.
+
+##Message Interactions
+
+1. You may include Reply, Reshare, and Like action links using the StockTwits web intents, if so they should be used
+consistently across all messages for authenticated StockTwits users.
+2. You cannot include third party interactions with StockTwits messages.
+
+##Branding
+
+1. It must always be apparent to the user that they are looking at a StockTwits message.
+2. Any StockTwits messages displayed individually or as part of a stream labeled with a StockTwits logo adjacent to the
+message or stream. Logos and buttons are available via our logo page. Whenever possible, StockTwits logos should link
+to [http://stocktwits.com](http://stocktwits.com).
+
 # Authentication
 
 StockTwits uses OAuth 2.0 for authentication and authorization.
@@ -122,7 +321,7 @@ http://www.example.com?code=<verification_code>
 > This code can then be exchanged for an access token.
 
 ```shell
-curl https://api.stocktwits.com/api/2/oauth/token /
+curl https://api.stocktwits.com/api/2/oauth/token \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{"client_id": "<client id>", "client_secret": "<client secret>", "code": "<code>", "grant_type": "authorization_code", "redirect_uri": "http://www.example.com"}'
@@ -158,7 +357,7 @@ Description | Value
 Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	No
+Pagination? | No
 HTTP Methods: | POST
 
 ### Parameters
@@ -181,7 +380,7 @@ of the authenticated user.
 > Authenticated requests can be performed by attaching the access token as the authorization header
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/friends.json /
+curl https://api.stocktwits.com/api/2/streams/friends.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -336,7 +535,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -482,7 +681,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -498,7 +697,7 @@ filter | Filter messages by links or charts. (Optional)
 ## Friends Stream
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/friends.json /
+curl https://api.stocktwits.com/api/2/streams/friends.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -624,7 +823,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -639,7 +838,7 @@ filter | Filter messages by links or charts. (Optional)
 ## Mentions Stream
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/mentions.json /
+curl https://api.stocktwits.com/api/2/streams/mentions.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -758,7 +957,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -773,7 +972,7 @@ filter | Filter messages by links or charts. (Optional)
 ## Watchlist Streams
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/watchlist/:id.json /
+curl https://api.stocktwits.com/api/2/streams/watchlist/:id.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -906,7 +1105,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -922,7 +1121,7 @@ filter | Filter messages by links or charts. (Optional)
 ## All Stream
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/all.json /
+curl https://api.stocktwits.com/api/2/streams/all.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -1166,7 +1365,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | Yes
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -1324,7 +1523,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -1339,7 +1538,7 @@ filter | Filter messages by links or charts. (Optional)
 ## Equities Stream
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/equities.json /
+curl https://api.stocktwits.com/api/2/streams/equities.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -1583,7 +1782,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | Yes
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -1598,7 +1797,7 @@ filter | Filter messages by links or charts. (Optional)
 ## Forex Stream
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/forex.json /
+curl https://api.stocktwits.com/api/2/streams/forex.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -1791,7 +1990,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | Yes
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -1806,7 +2005,7 @@ filter | Filter messages by links or charts. (Optional)
 ## Futures Stream
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/futures.json /
+curl https://api.stocktwits.com/api/2/streams/futures.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -2052,7 +2251,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | Yes
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -2067,7 +2266,7 @@ filter | Filter messages by links or charts. (Optional)
 ## Private Companies Stream
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/private_companies.json /
+curl https://api.stocktwits.com/api/2/streams/private_companies.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -2307,7 +2506,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | Yes
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -2447,7 +2646,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -2462,8 +2661,8 @@ filter | Filter messages by links or charts. (Optional)
 ## Symbols Stream
 
 ```shell
-curl https://api.stocktwits.com/api/2/streams/symbols.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/streams/symbols.json \
+  -H 'Authorization: Bearer <access_token>' \
   -d 'symbols=AAPL,TSLA,NFLX'
 ```
 
@@ -2593,7 +2792,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | Yes
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -2734,7 +2933,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -2751,7 +2950,7 @@ filter | Filter messages by links or charts. (Optional)
 ## Search
 
 ```shell
-curl https://api.stocktwits.com/api/2/search.json /
+curl https://api.stocktwits.com/api/2/search.json \
   -d 'q=stocktwits'
 ```
 
@@ -2886,7 +3085,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	No
+Pagination? | No
 HTTP Methods: | GET
 
 ### Parameters
@@ -2898,7 +3097,7 @@ q | The symbol or user string that you want to search for (Required)
 ## Symbols
 
 ```shell
-curl https://api.stocktwits.com/api/2/search/symbols.json /
+curl https://api.stocktwits.com/api/2/search/symbols.json \
   -d 'q=AAPL'
 ```
 
@@ -2927,7 +3126,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	No
+Pagination? | No
 HTTP Methods: | GET
 
 ### Parameters
@@ -2939,7 +3138,7 @@ q | The symbol that you want to search for (Required)
 ## Users
 
 ```shell
-curl https://api.stocktwits.com/api/2/search/users.json /
+curl https://api.stocktwits.com/api/2/search/users.json \
   -d 'q=stocktwits'
 ```
 
@@ -3081,7 +3280,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	No
+Pagination? | No
 HTTP Methods: | GET
 
 ### Parameters
@@ -3111,17 +3310,18 @@ into your application.
 > Note that the $ character in the message may need to be escaped (\$) to prevent the shell from interpolating an environment variable.
 
 ```shell
-curl https://api.stocktwits.com/api/2/messages/create.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/messages/create.json \
+  -H 'Authorization: Bearer <access_token>' \
   -d 'body=Creating a new message'
 ```
 
 > Uploading a chart (The chart parameter may also be a URL)
 
 ```shell
-curl https://api.stocktwits.com/api/2/messages/create.json /
-  -H 'Authorization: Bearer <access_token>' /
-  -F body="Creating a new message with a chart. \$ticker" /
+curl https://api.stocktwits.com/api/2/messages/create.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>' \
+  -F body="Creating a new message with a chart. \$ticker" \
   -F chart=@/path/to/a/local/image/file.jpg
 ```
 
@@ -3174,7 +3374,7 @@ Description | Value
 Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	No
+Pagination? | No
 HTTP Methods: | POST
 
 ### Parameters
@@ -3243,7 +3443,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | No
 Requires Partner-Level Access? | No
-Pagination? | 	No
+Pagination? | No
 HTTP Methods: | GET
 
 ### Parameters
@@ -3258,8 +3458,8 @@ conversation | 	Set to true to retrieve all meesages of the associated conversat
 Like a message on StockTwits as the authenticating user.
 
 ```shell
-curl https://api.stocktwits.com/api/2/messages/like.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/messages/like.json \
+  -H 'Authorization: Bearer <access_token>' \
   -d 'id=60975379'
 ```
 
@@ -3272,7 +3472,7 @@ Description | Value
 Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	No
+Pagination? | No
 HTTP Methods: | POST
 
 ### Parameters
@@ -3286,8 +3486,9 @@ id | ID of the message you want to like for the authenticating user (Required)
 Unlike a message on StockTwits as the authenticating user.
 
 ```shell
-curl https://api.stocktwits.com/api/2/messages/unlike.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/messages/unlike.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>' \
   -d 'id=60975379'
 ```
 
@@ -3300,7 +3501,7 @@ Description | Value
 Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	No
+Pagination? | No
 HTTP Methods: | POST
 
 ### Parameters
@@ -3316,8 +3517,8 @@ id | ID of the message you want to unlike for the authenticating user (Required)
 Returns the list of users that were blocked by the authenticating user.
 
 ```shell
-curl https://api.stocktwits.com/api/2/graph/blocking.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/graph/blocking.json \
+  -H 'Authorization: Bearer <access_token>'
 ```
 
 > Response
@@ -3368,7 +3569,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -3383,8 +3584,8 @@ max | Returns results with an ID less than (older than) or equal to the specifie
 Returns the list of users that were muted by the authenticating user.
 
 ```shell
-curl https://api.stocktwits.com/api/2/graph/muting.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/graph/muting.json \
+  -H 'Authorization: Bearer <access_token>'
 ```
 
 > Response
@@ -3435,7 +3636,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -3450,8 +3651,8 @@ max | Returns results with an ID less than (older than) or equal to the specifie
 Returns the list of users the authenticated user is following.
 
 ```shell
-curl https://api.stocktwits.com/api/2/graph/following.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/graph/following.json \
+  -H 'Authorization: Bearer <access_token>'
 ```
 
 > Response
@@ -3502,7 +3703,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -3517,8 +3718,8 @@ max | Returns results with an ID less than (older than) or equal to the specifie
 Returns the list of users the authenticated user is following.
 
 ```shell
-curl https://api.stocktwits.com/api/2/graph/following.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/graph/following.json \
+  -H 'Authorization: Bearer <access_token>'
 ```
 
 > Response
@@ -3569,7 +3770,7 @@ Description | Value
 Rate Limited? | Yes
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	Yes
+Pagination? | Yes
 HTTP Methods: | GET
 
 ### Parameters
@@ -3586,8 +3787,9 @@ max | Returns results with an ID less than (older than) or equal to the specifie
 This is to publicly follow a user, create a friendship and receive all messages from this user.
 
 ```shell
-curl https://api.stocktwits.com/api/2/friendships/create/<user_id>.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/friendships/create/<user_id>.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>'
 ```
 
 > Response
@@ -3613,7 +3815,7 @@ Description | Value
 Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	NO
+Pagination? | No
 HTTP Methods: | POST
 
 ### Parameters
@@ -3627,8 +3829,9 @@ id | The User ID of the StockTwits user you want to follow (Required)
 This it to unfollow a user and end the friendship and no longer receive the users messages.
 
 ```shell
-curl https://api.stocktwits.com/api/2/friendships/destroy/<user_id>.json /
-  -H 'Authorization: Bearer <access_token>' /
+curl https://api.stocktwits.com/api/2/friendships/destroy/<user_id>.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>'
 ```
 
 > Response
@@ -3654,7 +3857,7 @@ Description | Value
 Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
-Pagination? | 	NO
+Pagination? | No
 HTTP Methods: | POST
 
 ### Parameters
@@ -3662,3 +3865,842 @@ HTTP Methods: | POST
 Parameter | Description
 --------- | -----------
 id | The User ID of the StockTwits user you want to unfollow (Required)
+
+# Watchlists
+
+## Watchlists
+
+Returns a list of private watch lists for the authenticating user.
+
+```shell
+curl https://api.stocktwits.com/api/2/watchlists.json \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "watchlists": [
+    {
+      "id": 36477,
+      "name": "Mobile Watchlist",
+      "updated_at": "2012-08-13T21:59:30Z",
+      "created_at": "2012-06-26T02:03:39Z"
+    },
+    {
+      "id": 38398,
+      "name": "my picks",
+      "updated_at": "2012-08-13T21:59:46Z",
+      "created_at": "2012-08-10T22:03:24Z"
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | GET
+
+### Parameters
+
+None
+
+## Create
+
+This creates a private watch list for the authenticating user. A watch list will consist of many ticker symbols.
+
+```shell
+curl https://api.stocktwits.com/api/2/watchlists/create.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>' \
+  -d 'name=new_watch_list'
+```
+
+> Response
+
+```json
+{
+  "watchlist": {
+    "id": 38509,
+    "name": "new_watch_list",
+    "updated_at": "2012-08-13T22:09:25Z",
+    "created_at": "2012-08-13T22:09:25Z"
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+name | The name of the new watch list. (Required)
+
+## Update
+
+This update the contents of the specified watch list. Required parameters are the `id` of the watch list that is to be
+updated and the new `name` of the watch list.
+
+```shell
+curl https://api.stocktwits.com/api/2/watchlists/update/<watchlist_id>.json \
+  -X PUT \
+  -H 'Authorization: Bearer <access_token>' \
+  -d 'name=new_watchlist_name'
+```
+
+> Response
+
+```json
+{
+  "watchlist": {
+    "id": 38509,
+    "name": "new_watchlist_name",
+    "updated_at": "2012-08-13T22:09:25Z",
+    "created_at": "2012-08-13T22:09:25Z"
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | PUT
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the watch list to be updated (Required)
+name | The name of the new watch list. (Required)
+
+## Destroy
+
+This deletes the specified watch list. Required parameter is the ID of the watch list to be deleted, this is not the
+name of the watch list.
+
+```shell
+curl https://api.stocktwits.com/api/2/watchlists/destroy/<watchlist_id>.json \
+  -X DELETE \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response will be a 204 No Content
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | DELETE
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the watch list to be destroyed (Required)
+
+## Show
+
+Returns the the list of ticker symbols in a specified watch list for the authenticating user. Required parameter is the
+`id` of the watch list, not the `name` of the watch list.
+
+```shell
+curl https://api.stocktwits.com/api/2/watchlists/show/<watchlist_id>.json \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "watchlist": {
+    "id": 38398,
+    "name": "my picks",
+    "updated_at": "2012-08-13T22:26:20Z",
+    "created_at": "2012-08-10T22:03:24Z",
+    "symbols": [
+      {
+        "id": 7871,
+        "symbol": "FB",
+        "title": "Facebook"
+      },
+      {
+        "id": 2044,
+        "symbol": "GOOG",
+        "title": "Google Inc."
+      },
+      {
+        "id": 686,
+        "symbol": "AAPL",
+        "title": "Apple Inc."
+      }
+    ]
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the watch list to be shown (Required)
+
+## Add Symbols
+
+This adds a ticker symbol or symbols to a specified watch list. Required parameters are the `id` of the watch list and
+the symbol or symbols to be added.
+
+```shell
+curl https://api.stocktwits.com/api/2/watchlists/<watchlist_id>/symbols/create.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>' \
+  -d 'symbols=AAPL'
+```
+
+> Response
+
+```json
+{
+  "symbols": [
+    {
+      "id": 686,
+      "symbol": "AAPL",
+      "title": "Apple Inc."
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the watch list to add to. (Required)
+symbols | The ticker symbol or comma separated symbols that are to be added to the specified watch list. (Required)
+
+## Remove Symbols
+
+Remove a symbol from the specified watch list. You must pass the `id` of the watch list to which you want to add the
+symbol, not the name of the watch list.
+
+```shell
+curl https://api.stocktwits.com/api/2/watchlists/<watchlist_id>/symbols/destroy.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>' \
+  -d 'symbols=AAPL'
+```
+
+> Response will be an array of symbols that have been removed
+
+```json
+{
+  "symbols": [
+    {
+      "id": 686,
+      "symbol": "AAPL",
+      "title": "Apple Inc."
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the watch list to remove symbols from. (Required)
+symbols | The ticker of the symbol that you want to remove from the specified watch list. (Required)
+
+# Blocks
+
+## Create
+
+This blocks a user so the authenticating user will not receive message from the specified user. Required parameter is
+the `user_id` of the user to block, not the username.
+
+```shell
+curl https://api.stocktwits.com/api/2/blocks/create/<user_id>.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "user": {
+    "id": 176389,
+    "username": "jimmychanos",
+    "name": "Jim Chanos",
+    "avatar_url": "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg",
+    "join_date":"2016-07-25",
+    "official":false
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user you want to block (Required)
+
+## Destroy
+
+This unblocks a user so the authenticating user can reveive messages from the specified user. required parameter is the
+`user_id` of the user to unblock, not the username.
+
+```shell
+curl https://api.stocktwits.com/api/2/blocks/destroy/<user_id>.json \
+  -X DELETE \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "user": {
+    "id": 176389,
+    "username": "jimmychanos",
+    "name": "Jim Chanos",
+    "avatar_url": "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg",
+    "join_date":"2016-07-25",
+    "official":false
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | DELETE
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user you want to unblock (Required)
+
+# Mutes
+
+## Create
+
+This mutes a user so the authenticating user will no longer see the muted user in streams. Authenticated user will
+still be able to view the profile of the muted user. Required parameter is the `user_id` of the user to mute, not the
+username.
+
+```shell
+curl https://api.stocktwits.com/api/2/mutes/create/<user_id>.json \
+  -X POST \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "user": {
+    "id": 176389,
+    "username": "jimmychanos",
+    "name": "Jim Chanos",
+    "avatar_url": "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg",
+    "join_date":"2016-07-25",
+    "official":false
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | POST
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user you want to mute (Required)
+
+## Destroy
+
+This unmutes a user so the authenticating user can view messages from the specific users in streams. required parameter
+is the `user_id` of the user to unmute, not the username.
+
+```shell
+curl https://api.stocktwits.com/api/2/mutes/destroy/<user_id>.json \
+  -X DELETE \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "user": {
+    "id": 176389,
+    "username": "jimmychanos",
+    "name": "Jim Chanos",
+    "avatar_url": "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg",
+    "join_date":"2016-07-25",
+    "official":false
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | DELETE
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user you want to unmute (Required)
+
+# Account
+
+## Verify
+
+This verifies the credentials of a user. Useful for checking if authentication method is correct.
+
+```shell
+curl https://api.stocktwits.com/api/2/account/verify.json \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "user": {
+    "id": 369117,
+    "username": "ericalford",
+    "name": "Eric Alford",
+    "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+    "join_date": "2014-06-27",
+    "official": true
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | GET
+
+### Parameters
+
+None
+
+## Update
+
+This updates the properties of the authenticating user's account.
+
+<aside class="success">
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+</aside>
+
+```shell
+curl https://api.stocktwits.com/api/2/account/update.json \
+  -X PUT \
+  -H 'Authorization: Bearer <access_token>' \
+  -d 'name=New Name'
+```
+
+> Response
+
+```json
+{
+  "user": {
+    "id": 369117,
+    "username": "ericalford",
+    "name": "New Name",
+    "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+    "join_date": "2014-06-27",
+    "official": true,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Director of Engineering at StockTwits.",
+    "website_url": "http://www.twitter.com/ericalford",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
+  }
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | No
+Requires Authentication? | Yes
+Requires Partner-Level Access? | Yes
+Pagination? | No
+HTTP Methods: | PUT
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+name | The full name of the account holder
+email | The email address for the account holder
+username | The username for the account holder
+
+# Trending
+
+## Symbols
+
+Returns a list of all the trending symbols at the moment requested. Trending symbols include equities and non-equities
+like futures and forex. These are updated in 5-minute intervals.
+
+```shell
+curl https://api.stocktwits.com/api/2/trending/symbols.json
+```
+
+> Response
+
+```json
+{
+  "symbols": [
+    {
+      "id": 686,
+      "symbol": "AAPL",
+      "title": "Apple Inc."
+    },
+    {
+      "id": 30,
+      "symbol": "ES_F",
+      "title": "E-Mini S&P 500 Futures"
+    },
+    {
+      "id": 8660,
+      "symbol": "TSLA",
+      "title": "Tesla Motors, Inc."
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | No
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+limit | Default and max limit is 30. This limit must be a number under 30.
+
+## Equities
+
+Returns a list of all the trending equity symbols at the moment requested. Trending equities have to have a price over
+$5. These are updated in 5 minute intervals.
+
+```shell
+curl https://api.stocktwits.com/api/2/trending/symbols/equities.json
+```
+
+> Response
+
+```json
+{
+  "symbols": [
+    {
+      "id": 686,
+      "symbol": "AAPL",
+      "title": "Apple Inc."
+    },
+    {
+      "id": 30,
+      "symbol": "ES_F",
+      "title": "E-Mini S&P 500 Futures"
+    },
+    {
+      "id": 8660,
+      "symbol": "TSLA",
+      "title": "Tesla Motors, Inc."
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | No
+Requires Partner-Level Access? | No
+Pagination? | No
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+limit | Default and max limit is 30. This limit must be a number under 30.
+
+# Deletions
+
+## Messages
+
+Returns a list of messages deleted recently. This is to be used in conjunction with firehose access.
+
+<aside class="success">
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+</aside>
+
+```shell
+curl https://api.stocktwits.com/api/2/deletions/messages.json \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "cursor": {
+    "since": 111868,
+    "max": 111769,
+    "more": true
+  },
+  "messages": [
+    {
+      "id": 111868,
+      "message_id": 9092561,
+      "deleted_at": "2012-08-13T22:29:04Z"
+    },
+    {
+      "id": 111867,
+      "message_id": 9093785,
+      "deleted_at": "2012-08-13T22:28:28Z"
+    },
+    {
+      "id": 111866,
+      "message_id": 9093714,
+      "deleted_at": "2012-08-13T22:16:05Z"
+    },
+    {
+      "id": 111865,
+      "message_id": 9093260,
+      "deleted_at": "2012-08-13T22:03:41Z"
+    },
+    {
+      "id": 111864,
+      "message_id": 9093113,
+      "deleted_at": "2012-08-13T22:03:37Z"
+    },
+    {
+      "id": 111863,
+      "message_id": 9093142,
+      "deleted_at": "2012-08-13T21:28:55Z"
+    },
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | Yes
+Pagination? | Yes
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+since | Returns results with an ID greater than (more recent than) the specified ID.
+max | Returns results with an ID less than (older than) or equal to the specified ID.
+
+## Users
+
+Returns a list of user accounts deleted recently. This is to be used in conjunction with firehose access.
+
+<aside class="success">
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+</aside>
+
+```shell
+curl https://api.stocktwits.com/api/2/deletions/users.json \
+  -H 'Authorization: Bearer <access_token>'
+```
+
+> Response
+
+```json
+{
+  "cursor": {
+    "since": 924,
+    "max": 825,
+    "more": true
+  },
+  "users": [
+    {
+      "id": 924,
+      "user_id": 147524,
+      "username": "SSX999",
+      "deleted_at": "2012-08-13T18:22:53Z"
+    },
+    {
+      "id": 923,
+      "user_id": 176669,
+      "username": "jhardiejr2",
+      "deleted_at": "2012-08-13T14:24:59Z"
+    },
+    {
+      "id": 922,
+      "user_id": 130685,
+      "username": "dp06x",
+      "deleted_at": "2012-08-13T14:18:15Z"
+    },
+    {
+      "id": 921,
+      "user_id": 158870,
+      "username": "daniaconcha",
+      "deleted_at": "2012-08-13T14:08:41Z"
+    },
+    {
+      "id": 920,
+      "user_id": 102850,
+      "username": "sshin1212",
+      "deleted_at": "2012-08-13T14:07:21Z"
+    },
+    {
+      "id": 919,
+      "user_id": 59050,
+      "username": "FXTrader",
+      "deleted_at": "2012-08-13T13:49:00Z"
+    }
+  ]
+}
+```
+
+### Endpoint Information
+
+Description | Value
+--------- | -----------
+Rate Limited? | Yes
+Requires Authentication? | Yes
+Requires Partner-Level Access? | Yes
+Pagination? | Yes
+HTTP Methods: | GET
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+limit | Default and max limit is 30. This limit must be a number under 30.
