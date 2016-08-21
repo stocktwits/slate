@@ -3425,6 +3425,1291 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tr>
 </tbody></table>
 
+<h1 id="search">Search</h1>
+
+<h2 id="search">Search</h2>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search.json /
+  -d <span class="s1">'q=stocktwits'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"results"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"symbol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"StockTwits Education"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"STUDY"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"MISC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">8677</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"symbol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"StockTwits"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"STWIT"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"PRIVATE"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">7989</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"symbol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"StockTwits Predictions"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"PREDICT"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"MISC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">9217</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"symbol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"StockTwits Social Web Index"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"SWEB"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"MISC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">9690</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"symbol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"StockTwits IR Demo Corporation"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"DEMO"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"MISC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">9696</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"symbol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"StockTwits NCAA Bracket Challenge"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"NCAA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"MISC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">9579</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"symbol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"StockTwits Roast"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"ROAST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"MISC"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">9439</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwits"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">170</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/170/thumb-1409235653.png?1409235653"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Data"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsData"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">206492</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/206492/thumb-1357904126.png?1357904126"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Charts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"chartly"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">8648</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/8648/thumb-1344904673.png?1344904673"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Help Desk"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsHelp"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">8462</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/8462/thumb-1412619441.png?1412619441"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits TV"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsTV"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">5245</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/5245/thumb-1270047545.png?1270047545"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits University"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsU"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">21051</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/21051/thumb-1439311816.png?1439311816"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"John Melloy"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"stocktwitsjohn"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">269009</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/269009/thumb-1381334240.png?1381334240"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Network"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"STNet"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">25677</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/25677/thumb-1286811272.png?1286811272"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This allows an API application to search for a symbol or user. 30 Results will be a combined list of symbols and users.</p>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td>The symbol or user string that you want to search for (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="symbols">Symbols</h2>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search/symbols.json /
+  -d <span class="s1">'q=AAPL'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"results"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"symbol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Apple Inc."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"exchange"</span><span class="p">:</span><span class="s2">"NASDAQ"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">686</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This allows an API application to search for a symbol directly. 30 Results will return only ticker symbols.</p>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td>The symbol that you want to search for (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="users">Users</h2>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/search/users.json /
+  -d <span class="s1">'q=stocktwits'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"results"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwits"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">170</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/170/thumb-1409235653.png?1409235653"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Data"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsData"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">206492</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/206492/thumb-1357904126.png?1357904126"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Charts"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"chartly"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">8648</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/8648/thumb-1344904673.png?1344904673"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Help Desk"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsHelp"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">8462</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/8462/thumb-1412619441.png?1412619441"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits TV"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsTV"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">5245</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/5245/thumb-1270047545.png?1270047545"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits University"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsU"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">21051</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/21051/thumb-1439311816.png?1439311816"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"John Melloy"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"stocktwitsjohn"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">269009</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/269009/thumb-1381334240.png?1381334240"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Network"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"STNet"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">25677</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/25677/thumb-1286811272.png?1286811272"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"The StockTwits Squad Car"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"STsquadcar"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">81704</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/81704/thumb-1306871723.png?1306871723"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits FX"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsFX"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">19569</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/19569/thumb-1280172302.png?1280172302"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StocktwitsHater"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StocktwitsHater"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">495</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/495/thumb-1319565281.png?1319565281"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Pump Patrol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"ST_PumpPatrol"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">479628</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/479628/thumb-1425506727.png?1425506727"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Awesome!"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"STawesome"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">37943</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/37943/thumb-1303909414.png?1303909414"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits IR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsIR"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">35843</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/35843/thumb-1320352066.png?1320352066"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"StockTwits Links"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"StockTwitsLinks"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">222797</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/222797/thumb-1364493882.png?1364493882"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This allows an API application to search for a user directly. 30 Results will only return users.</p>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td>The user that you want to search for (Required)</td>
+</tr>
+</tbody></table>
+
+<h1 id="messages">Messages</h1>
+
+<h2 id="create">Create</h2>
+
+<p>Create a StockTwits message. To upload a chart to accompany the message, pass a file using the <code class="prettyprint">chart</code> parameter.
+The API will check that the character count is under 140 and prevent duplicate message postings.
+<a href='#'>Learn more about parameters and character counting.</a></p>
+
+<p>The reposonse returned on creating a message is a great way to use StockTwits context with content sent to another
+non-finacially focused social network such as Facebook, LinkedIn or Twitter.
+Because these other platforms aren&rsquo;t as investor-focused as StockTwits, they may lack the context like price or chart.
+Sending the response&rsquo;s body will allow the user of those other networks access to the financial context of the
+message with a link back to the appropriate page.</p>
+
+<p>The Message ID can be used to create your own link to the message as a landing page.
+This comes in handy in the case of a Chart where you might not want to create your own webpage or integrate the chart
+into your application.</p>
+
+<blockquote>
+<p>Note that the $ character in the message may need to be escaped (\$) to prevent the shell from interpolating an environment variable.</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/create.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+  -d <span class="s1">'body=Creating a new message'</span>
+</code></pre>
+
+<blockquote>
+<p>Uploading a chart (The chart parameter may also be a URL)</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/create.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+  -F <span class="nv">body</span><span class="o">=</span><span class="s2">"Creating a new message with a chart. </span><span class="se">\$</span><span class="s2">ticker"</span> /
+  -F <span class="nv">chart</span><span class="o">=</span>@/path/to/a/local/image/file.jpg
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975379</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creating a new message with a chart. $ticker"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-19T15:15:48Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eric Alford"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TICKER"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ticker Inc."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"reshares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"reshared_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"mentioned_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"chart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charts.stocktwits.com/production/small_61042991.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charts.stocktwits.com/production/large_61042991.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"original"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charts.stocktwits.com/production/original_61042991."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charts.stocktwits.com/production/original_61042991."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>The body of the message. This parameter should be URL-encoded or entire request sent as multipart/form-data for all characters to submit properly. <a href='#'>Character count must be under 140.</a> (Required)</td>
+</tr>
+<tr>
+<td>in_reply_to_message_id</td>
+<td>The ID this message replies to, if any. (Optional)</td>
+</tr>
+<tr>
+<td>chart</td>
+<td>Path or URL to file to be uploaded. File Formats accepted: JPG, PNG, GIF under 2MB. Charts will count as 24 characters in the message body (Optional)</td>
+</tr>
+<tr>
+<td>sentiment</td>
+<td>A sentiment label for the message. Acceptable values: bullish, bearish, neutral. Defaults to neutral. (Optional)</td>
+</tr>
+</tbody></table>
+
+<h2 id="show">Show</h2>
+
+<p>This shows the specified message details. This is used in a stand alone display.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/show/&lt;message_id&gt;.json
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975379</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creating a new message with a chart. $ticker"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-19T15:15:48Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eric Alford"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TICKER"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ticker Inc."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"reshares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"reshared_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"mentioned_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"chart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"thumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charts.stocktwits.com/production/small_61042991.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charts.stocktwits.com/production/large_61042991.png"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"original"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charts.stocktwits.com/production/original_61042991."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charts.stocktwits.com/production/original_61042991."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ID of the message you want to show from the authenticating user (Required)</td>
+</tr>
+<tr>
+<td>conversation</td>
+<td>Set to true to retrieve all meesages of the associated conversation. (Optional)</td>
+</tr>
+</tbody></table>
+
+<h2 id="like">Like</h2>
+
+<p>Like a message on StockTwits as the authenticating user.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/like.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+  -d <span class="s1">'id=60975379'</span>
+</code></pre>
+
+<blockquote>
+<p>If successful, the response will be a 204 No Content</p>
+</blockquote>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ID of the message you want to like for the authenticating user (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="unlike">Unlike</h2>
+
+<p>Unlike a message on StockTwits as the authenticating user.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/unlike.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+  -d <span class="s1">'id=60975379'</span>
+</code></pre>
+
+<blockquote>
+<p>If successful, the response will be a 204 No Content</p>
+</blockquote>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ID of the message you want to unlike for the authenticating user (Required)</td>
+</tr>
+</tbody></table>
+
+<h1 id="graph">Graph</h1>
+
+<h2 id="blocking">Blocking</h2>
+
+<p>Returns the list of users that were blocked by the authenticating user.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/blocking.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cursor"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"more"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"since"</span><span class="p">:</span><span class="mi">1450610</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max"</span><span class="p">:</span><span class="mi">295259</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">304332</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"sorcefm"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"chaz"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2014-01-23"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">802670</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"francine86"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Francine Bohnen"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2016-07-25"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">295259</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"Smurfologist"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Melvin Woods"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2013-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since</td>
+<td>Returns results with an ID greater than (more recent than) the specified ID.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>Returns results with an ID less than (older than) or equal to the specified ID.</td>
+</tr>
+</tbody></table>
+
+<h2 id="muting">Muting</h2>
+
+<p>Returns the list of users that were muted by the authenticating user.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/muting.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cursor"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"more"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"since"</span><span class="p">:</span><span class="mi">1450610</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max"</span><span class="p">:</span><span class="mi">295259</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">304332</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"sorcefm"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"chaz"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2014-01-23"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">802670</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"francine86"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Francine Bohnen"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2016-07-25"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">295259</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"Smurfologist"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Melvin Woods"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2013-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since</td>
+<td>Returns results with an ID greater than (more recent than) the specified ID.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>Returns results with an ID less than (older than) or equal to the specified ID.</td>
+</tr>
+</tbody></table>
+
+<h2 id="following">Following</h2>
+
+<p>Returns the list of users the authenticated user is following.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/following.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cursor"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"more"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"since"</span><span class="p">:</span><span class="mi">1450610</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max"</span><span class="p">:</span><span class="mi">295259</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">304332</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"sorcefm"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"chaz"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2014-01-23"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">802670</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"francine86"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Francine Bohnen"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2016-07-25"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">295259</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"Smurfologist"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Melvin Woods"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2013-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since</td>
+<td>Returns results with an ID greater than (more recent than) the specified ID.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>Returns results with an ID less than (older than) or equal to the specified ID.</td>
+</tr>
+</tbody></table>
+
+<h2 id="followers">Followers</h2>
+
+<p>Returns the list of users the authenticated user is following.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/graph/following.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"cursor"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"more"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"since"</span><span class="p">:</span><span class="mi">1450610</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max"</span><span class="p">:</span><span class="mi">295259</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"users"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">304332</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"sorcefm"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"chaz"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2014-01-23"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">802670</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"francine86"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Francine Bohnen"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2016-07-25"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">295259</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"Smurfologist"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Melvin Woods"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="s2">"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"join_date"</span><span class="p">:</span><span class="s2">"2013-12-31"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"official"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since</td>
+<td>Returns results with an ID greater than (more recent than) the specified ID.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>Returns results with an ID less than (older than) or equal to the specified ID.</td>
+</tr>
+</tbody></table>
+
+<h1 id="friendships">Friendships</h1>
+
+<h2 id="create">Create</h2>
+
+<p>This is to publicly follow a user, create a friendship and receive all messages from this user.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/friendships/create/&lt;user_id&gt;.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eric Alford"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The User ID of the StockTwits user you want to follow (Required)</td>
+</tr>
+</tbody></table>
+
+<h2 id="destroy">Destroy</h2>
+
+<p>This it to unfollow a user and end the friendship and no longer receive the users messages.</p>
+<pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/friendships/destroy/&lt;user_id&gt;.json /
+  -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> /
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eric Alford"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="endpoint-information">Endpoint Information</h3>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Requires Authentication?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires Partner-Level Access?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pagination?</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>HTTP Methods:</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The User ID of the StockTwits user you want to unfollow (Required)</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
