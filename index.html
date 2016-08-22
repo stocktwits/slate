@@ -125,7 +125,7 @@ StockTwits community.</p>
 <p>Your application and your users can access the StockTwits social graph, display curated data streams, integrate watch
 lists, and easily share messages, links and charts directly from your application.</p>
 
-<p>The StockTwits API is perfect for financial applications/websites/apps that want or need a social layer.</p>
+<p>The StockTwits API is perfect for financial applications/websites that want or need a social layer.</p>
 
 <aside class="notice">
 All requests must be SSL
@@ -160,9 +160,9 @@ limit resets again.</p>
 <p>Error responses are rate limited against either the authenticated or unauthenticated rate limit depending on where the
 error occurs. Unauthenticated responses will typically return a HTTP 400 or 401 status code.</p>
 
-<p>Rate limits are applied to methods that request information with the HTTP GET or HEAD method.
-Generally API methods that use HTTP POST to submit data to StockTwits are not rate limited.
-Every method in the API documentation displays if it is rate limited or not.</p>
+<p>Rate limits are applied to endpoints that request information with the HTTP GET or HEAD method.
+Generally API endpoints that use HTTP POST to submit data to StockTwits are not rate limited.
+Every endpoint in the API documentation displays if it is rate limited or not.</p>
 
 <p>Actions such as publishing messages, sending direct messages, following and unfollowing users are not directly rate
 limited by the API but are subject to fair use limits.</p>
@@ -179,7 +179,7 @@ limited by the API but are subject to fair use limits.</p>
 
 <h3 id="if-you-are-rate-limited">If you are rate limited</h3>
 
-<p>If your application is being rate-limited it will receive HTTP 429 response code.
+<p>If your application is being rate-limited, it will receive HTTP 429 response code.
 It is best practice for applications to monitor their current rate limit status and dynamically throttle requests.</p>
 
 <h3 id="blacklisting">Blacklisting</h3>
@@ -324,7 +324,7 @@ converted to <a href='http://en.wikipedia.org/wiki/UTF-8'>UTF-8</a> and URL enco
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Clients may access a theoretical maximum of 800 messages via the cursor parameters for the API methods.
+<p>Clients may access a theoretical maximum of 800 messages via the cursor parameters for the API endpoints.
 Requests for more than the limit will result in a reply with a status code of 200 and an empty result in the format
 requested. StockTwits still maintains a database of all the messages sent by a user.
 However, to ensure performance of the site, this artificial limit is temporarily in place.</p>
@@ -334,7 +334,7 @@ However, to ensure performance of the site, this artificial limit is temporarily
 <p><strong>Since</strong> will return results with an ID greater than (more recent than) the specified ID. Use this when getting new
 results or messages to a stream.</p>
 
-<p><strong>Max</strong> will return results with an ID less than (older than) or equal to the specified ID. Use this to get older
+<p><strong>Max</strong> will return results with an ID less than (older than) the specified ID. Use this to get older
 results or messages that have previously been published.</p>
 
 <h1 id="counting-characters">Counting Characters</h1>
@@ -586,13 +586,14 @@ If you want to read additional data or write data to StockTwits, you need to req
 
 <aside class="notice">
 Remember — If you need to perform actions on behalf of a user and the corresponding scope is not granted, you will need
-to re-authenticate the user to continue that action.
+to re-authenticate the user with that scope to continue that action.
 </aside>
 
 <h1 id="streams">Streams</h1>
 
 <aside class="success">
-The extended metadata in the API response below is only available through <a href='#'>Partner-Level Access.</a>
+All endpoints that require <a href='#'>Partner-Level Access.</a> includes extended metadata. To receive extended access,
+please contact us about becoming a partner.
 </aside>
 
 <h2 id="user-streams">User Streams</h2>
@@ -4060,13 +4061,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 
 <p>Create a StockTwits message. To upload a chart to accompany the message, pass a file using the <code class="prettyprint">chart</code> parameter.
 The API will check that the character count is under 140 and prevent duplicate message postings.
-<a href='#'>Learn more about parameters and character counting.</a></p>
-
-<p>The reposonse returned on creating a message is a great way to use StockTwits context with content sent to another
-non-finacially focused social network such as Facebook, LinkedIn or Twitter.
-Because these other platforms aren&rsquo;t as investor-focused as StockTwits, they may lack the context like price or chart.
-Sending the response&rsquo;s body will allow the user of those other networks access to the financial context of the
-message with a link back to the appropriate page.</p>
+<a href='/?#counting-characters'>Learn more about parameters and character counting.</a></p>
 
 <p>The Message ID can be used to create your own link to the message as a landing page.
 This comes in handy in the case of a Chart where you might not want to create your own webpage or integrate the chart
@@ -6209,7 +6204,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
           <h1 id="response-amp-error-codes">Response &amp; Error Codes</h1>
 
 <p>The StockTwits API attempts to return appropriate HTTP status codes for every request. The following table describes
-the codes which may appear when working with the API:</p>
+the codes, which may appear when working with the API:</p>
 
 <table><thead>
 <tr>
