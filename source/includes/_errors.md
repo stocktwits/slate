@@ -1,7 +1,7 @@
 # Response & Error Codes
 
 The StockTwits API attempts to return appropriate HTTP status codes for every request. The following table describes
-the codes which may appear when working with the API:
+the codes, which may appear when working with the API:
 
 Code | Meaning
 ---------- | -------

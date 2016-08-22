@@ -23,7 +23,7 @@ StockTwits community.
 Your application and your users can access the StockTwits social graph, display curated data streams, integrate watch
 lists, and easily share messages, links and charts directly from your application.
 
-The StockTwits API is perfect for financial applications/websites/apps that want or need a social layer.
+The StockTwits API is perfect for financial applications/websites that want or need a social layer.
 
 <aside class="notice">
 All requests must be SSL
@@ -58,9 +58,9 @@ limit resets again.
 Error responses are rate limited against either the authenticated or unauthenticated rate limit depending on where the
 error occurs. Unauthenticated responses will typically return a HTTP 400 or 401 status code.
 
-Rate limits are applied to methods that request information with the HTTP GET or HEAD method.
-Generally API methods that use HTTP POST to submit data to StockTwits are not rate limited.
-Every method in the API documentation displays if it is rate limited or not.
+Rate limits are applied to endpoints that request information with the HTTP GET or HEAD method.
+Generally API endpoints that use HTTP POST to submit data to StockTwits are not rate limited.
+Every endpoint in the API documentation displays if it is rate limited or not.
 
 Actions such as publishing messages, sending direct messages, following and unfollowing users are not directly rate
 limited by the API but are subject to fair use limits.
@@ -77,7 +77,7 @@ limited by the API but are subject to fair use limits.
 
 ### If you are rate limited
 
-If your application is being rate-limited it will receive HTTP 429 response code.
+If your application is being rate-limited, it will receive HTTP 429 response code.
 It is best practice for applications to monitor their current rate limit status and dynamically throttle requests.
 
 ###Blacklisting
@@ -222,7 +222,7 @@ curl https://api.stocktwits.com/api/2/streams/friends.json \
 }
 ```
 
-Clients may access a theoretical maximum of 800 messages via the cursor parameters for the API methods.
+Clients may access a theoretical maximum of 800 messages via the cursor parameters for the API endpoints.
 Requests for more than the limit will result in a reply with a status code of 200 and an empty result in the format
 requested. StockTwits still maintains a database of all the messages sent by a user.
 However, to ensure performance of the site, this artificial limit is temporarily in place.
@@ -232,7 +232,7 @@ There are two main parameters when paginating through results.
 **Since** will return results with an ID greater than (more recent than) the specified ID. Use this when getting new
 results or messages to a stream.
 
-**Max** will return results with an ID less than (older than) or equal to the specified ID. Use this to get older
+**Max** will return results with an ID less than (older than) the specified ID. Use this to get older
 results or messages that have previously been published.
 
 #Counting Characters
@@ -401,13 +401,14 @@ notifications | false | Read a users notifications
 
 <aside class="notice">
 Remember — If you need to perform actions on behalf of a user and the corresponding scope is not granted, you will need
-to re-authenticate the user to continue that action.
+to re-authenticate the user with that scope to continue that action.
 </aside>
 
 # Streams
 
 <aside class="success">
-The extended metadata in the API response below is only available through <a href='#'>Partner-Level Access.</a>
+All endpoints that require <a href='#'>Partner-Level Access.</a> includes extended metadata. To receive extended access,
+please contact us about becoming a partner.
 </aside>
 
 ## User Streams
@@ -3295,13 +3296,7 @@ q | The user that you want to search for (Required)
 
 Create a StockTwits message. To upload a chart to accompany the message, pass a file using the `chart` parameter.
 The API will check that the character count is under 140 and prevent duplicate message postings.
-<a href='#'>Learn more about parameters and character counting.</a>
-
-The reposonse returned on creating a message is a great way to use StockTwits context with content sent to another
-non-finacially focused social network such as Facebook, LinkedIn or Twitter.
-Because these other platforms aren't as investor-focused as StockTwits, they may lack the context like price or chart.
-Sending the response's body will allow the user of those other networks access to the financial context of the
-message with a link back to the appropriate page.
+<a href='/?#counting-characters'>Learn more about parameters and character counting.</a>
 
 The Message ID can be used to create your own link to the message as a landing page.
 This comes in handy in the case of a Chart where you might not want to create your own webpage or integrate the chart
