@@ -6,10 +6,13 @@ language_tabs:
 
 toc_footers:
   - <a href='http://stocktwits.com/developers/apps/new'>Register your App</a>
-  - <a href='#'>Register for Firehose</a>
+  - <a href='mailto:firehose@stocktwits.com'>Register for Firehose</a>
 
 includes:
   - errors
+  - widgets
+  - buttons
+  - logos
   - terms_conditions
 
 search: true
@@ -90,7 +93,8 @@ If you or your application has been blacklisted and you think there has been an 
 
 ## Partner API
 
-If your application requires extended data or a higher rate limit, you may want to consider becoming a partner. Please contact our team for more information.
+If your application requires extended data or a higher rate limit, you may want to consider becoming a partner.
+Please [contact our team](mailto:api@stocktwits.com) for more information.
 
 #Parameters & Pagination
 
@@ -287,7 +291,7 @@ consistently across all messages for authenticated StockTwits users.
 
 1. It must always be apparent to the user that they are looking at a StockTwits message.
 2. Any StockTwits messages displayed individually or as part of a stream labeled with a StockTwits logo adjacent to the
-message or stream. Logos and buttons are available via our logo page. Whenever possible, StockTwits logos should link
+message or stream. Logos and buttons are available via our [logo page](#stocktwits-logos). Whenever possible, StockTwits logos should link
 to [http://stocktwits.com](http://stocktwits.com).
 
 # Authentication
@@ -367,7 +371,7 @@ Parameter | Description
 client_id | The consumer key for the OAuth client.
 response_type | The response type for the OAuth flow.
 redirect_uri | The URI where StockTwits will redirect the user for authorization.
-scope | 	A comma-delimited list of <a href='/#authorization-scopes'>scope permissions.</a>
+scope | 	A comma-delimited list of [scope permissions.](#authorization-scopes)
 prompt | Set to 1 to always prompt for authorization.
 
 ###Performing authenticated requests
@@ -407,7 +411,7 @@ to re-authenticate the user with that scope to continue that action.
 # Streams
 
 <aside class="success">
-All endpoints that require <a href='#'>Partner-Level Access.</a> includes extended metadata. To receive extended access,
+All endpoints that require [Partner-Level Access](mailto:api@stocktwits.com) includes extended metadata. To receive extended access,
 please contact us about becoming a partner.
 </aside>
 
@@ -1356,7 +1360,7 @@ curl https://api.stocktwits.com/api/2/streams/all.json \
 Returns the most recent 30 messages for all non-private symbols
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ### Endpoint Information
@@ -1773,7 +1777,7 @@ curl https://api.stocktwits.com/api/2/streams/equities.json \
 Returns the most recent 30 messages containing equity symbols. This will not include futures or forex messages.
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ### Endpoint Information
@@ -1981,7 +1985,7 @@ curl https://api.stocktwits.com/api/2/streams/forex.json \
 Returns the most recent 30 messages for forex symbols. Example $EURUSD
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ### Endpoint Information
@@ -2242,7 +2246,7 @@ curl https://api.stocktwits.com/api/2/streams/futures.json \
 Returns the most recent 30 messages for futures symbols. Example $ES_F
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ### Endpoint Information
@@ -2497,7 +2501,7 @@ curl https://api.stocktwits.com/api/2/streams/private_companies.json \
 Returns the most recent 30 messages containing private symbols. Example $UBER
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ### Endpoint Information
@@ -2783,7 +2787,7 @@ curl https://api.stocktwits.com/api/2/streams/symbols.json \
 Returns the most recent 30 messages for the specified list of symbols. Up to 10 symbols allowed.
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ### Endpoint Information
@@ -3296,7 +3300,7 @@ q | The user that you want to search for (Required)
 
 Create a StockTwits message. To upload a chart to accompany the message, pass a file using the `chart` parameter.
 The API will check that the character count is under 140 and prevent duplicate message postings.
-<a href='/?#counting-characters'>Learn more about parameters and character counting.</a>
+[Learn more about parameters and character counting.](#counting-characters)
 
 The Message ID can be used to create your own link to the message as a landing page.
 This comes in handy in the case of a Chart where you might not want to create your own webpage or integrate the chart
@@ -3376,7 +3380,7 @@ HTTP Methods: | POST
 
 Parameter | Description
 --------- | -----------
-body | The body of the message. This parameter should be URL-encoded or entire request sent as multipart/form-data for all characters to submit properly. <a href='#'>Character count must be under 140.</a> (Required)
+body | The body of the message. This parameter should be URL-encoded or entire request sent as multipart/form-data for all characters to submit properly. [Character count must be under 140.](#counting-characters) (Required)
 in_reply_to_message_id | The ID this message replies to, if any. (Optional)
 chart | Path or URL to file to be uploaded. File Formats accepted: JPG, PNG, GIF under 2MB. Charts will count as 24 characters in the message body (Optional)
 sentiment | A sentiment label for the message. Acceptable values: bullish, bearish, neutral. Defaults to neutral. (Optional)
@@ -3454,11 +3458,58 @@ Like a message on StockTwits as the authenticating user.
 
 ```shell
 curl https://api.stocktwits.com/api/2/messages/like.json \
+  -X POST \
   -H 'Authorization: Bearer <access_token>' \
   -d 'id=60975379'
 ```
 
-> If successful, the response will be a 204 No Content
+> Response
+
+```json
+{
+  "message": {
+     "id": 60975379,
+     "body": "$AAPL going up from here",
+     "created_at": "2016-08-19T15:15:48Z",
+     "user": {
+       "id": 369117,
+       "username": "ericalford",
+       "name": "Eric Alford",
+       "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+       "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+       "join_date": "2014-06-27",
+       "official": true
+     },
+     "symbols": [
+       {
+         "id": 686,
+         "symbol": "AAPL",
+         "title": "Apple Inc."
+       }
+     ],
+     "conversation": {
+       "parent_message_id": 60974422,
+       "in_reply_to_message_id": 60975320,
+       "parent": false,
+       "replies": 5
+     },
+     "likes": {
+       "total": 1,
+       "user_ids": [
+         234328
+       ]
+     },
+     "reshares": {
+       "reshared_count": 0,
+       "user_ids": []
+     },
+     "mentioned_users": [],
+     "entities": {
+       "sentiment": null
+     }
+   }
+}
+```
 
 ### Endpoint Information
 
@@ -3487,7 +3538,47 @@ curl https://api.stocktwits.com/api/2/messages/unlike.json \
   -d 'id=60975379'
 ```
 
-> If successful, the response will be a 204 No Content
+> Response
+
+```json
+{
+  "message": {
+     "id": 60975379,
+     "body": "$AAPL going up from here",
+     "created_at": "2016-08-19T15:15:48Z",
+     "user": {
+       "id": 369117,
+       "username": "ericalford",
+       "name": "Eric Alford",
+       "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+       "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+       "join_date": "2014-06-27",
+       "official": true
+     },
+     "symbols": [
+       {
+         "id": 686,
+         "symbol": "AAPL",
+         "title": "Apple Inc."
+       }
+     ],
+     "conversation": {
+       "parent_message_id": 60974422,
+       "in_reply_to_message_id": 60975320,
+       "parent": false,
+       "replies": 5
+     },
+     "reshares": {
+       "reshared_count": 0,
+       "user_ids": []
+     },
+     "mentioned_users": [],
+     "entities": {
+       "sentiment": null
+     }
+   }
+}
+```
 
 ### Endpoint Information
 
@@ -3954,7 +4045,7 @@ updated and the new `name` of the watch list.
 
 ```shell
 curl https://api.stocktwits.com/api/2/watchlists/update/<watchlist_id>.json \
-  -X PUT \
+  -X POST \
   -H 'Authorization: Bearer <access_token>' \
   -d 'name=new_watchlist_name'
 ```
@@ -3980,7 +4071,7 @@ Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
 Pagination? | No
-HTTP Methods: | PUT
+HTTP Methods: | POST
 
 ### Parameters
 
@@ -3996,7 +4087,7 @@ name of the watch list.
 
 ```shell
 curl https://api.stocktwits.com/api/2/watchlists/destroy/<watchlist_id>.json \
-  -X DELETE \
+  -X POST \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -4010,7 +4101,7 @@ Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
 Pagination? | No
-HTTP Methods: | DELETE
+HTTP Methods: | POST
 
 ### Parameters
 
@@ -4383,12 +4474,12 @@ None
 This updates the properties of the authenticating user's account.
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ```shell
 curl https://api.stocktwits.com/api/2/account/update.json \
-  -X PUT \
+  -X POST \
   -H 'Authorization: Bearer <access_token>' \
   -d 'name=New Name'
 ```
@@ -4435,7 +4526,7 @@ Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | Yes
 Pagination? | No
-HTTP Methods: | PUT
+HTTP Methods: | POST
 
 ### Parameters
 
@@ -4552,7 +4643,7 @@ limit | Default and max limit is 30. This limit must be a number under 30.
 Returns a list of messages deleted recently. This is to be used in conjunction with firehose access.
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ```shell
@@ -4626,7 +4717,7 @@ max | Returns results with an ID less than (older than) or equal to the specifie
 Returns a list of user accounts deleted recently. This is to be used in conjunction with firehose access.
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 ```shell
