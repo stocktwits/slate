@@ -111,7 +111,7 @@
       </div>
         <ul class="toc-footer">
             <li><a href='http://stocktwits.com/developers/apps/new'>Register your App</a></li>
-            <li><a href='#'>Register for Firehose</a></li>
+            <li><a href='mailto:firehose@stocktwits.com'>Register for Firehose</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -192,7 +192,8 @@ and or blacklist it. If you are blacklisted you will be unable to get a response
 
 <h2 id="partner-api">Partner API</h2>
 
-<p>If your application requires extended data or a higher rate limit, you may want to consider becoming a partner. Please contact our team for more information.</p>
+<p>If your application requires extended data or a higher rate limit, you may want to consider becoming a partner.
+Please <a href="mailto:api@stocktwits.com">contact our team</a> for more information.</p>
 
 <h1 id="parameters-amp-pagination">Parameters &amp; Pagination</h1>
 
@@ -397,7 +398,7 @@ consistently across all messages for authenticated StockTwits users.</li>
 <ol>
 <li>It must always be apparent to the user that they are looking at a StockTwits message.</li>
 <li>Any StockTwits messages displayed individually or as part of a stream labeled with a StockTwits logo adjacent to the
-message or stream. Logos and buttons are available via our logo page. Whenever possible, StockTwits logos should link
+message or stream. Logos and buttons are available via our <a href="#stocktwits-logos">logo page</a>. Whenever possible, StockTwits logos should link
 to <a href="http://stocktwits.com">http://stocktwits.com</a>.</li>
 </ol>
 
@@ -513,7 +514,7 @@ See the different scopes in the Authorization Scopes section below.</p>
 </tr>
 <tr>
 <td>scope</td>
-<td>A comma-delimited list of <a href='/#authorization-scopes'>scope permissions.</a></td>
+<td>A comma-delimited list of <a href="#authorization-scopes">scope permissions.</a></td>
 </tr>
 <tr>
 <td>prompt</td>
@@ -592,7 +593,7 @@ to re-authenticate the user with that scope to continue that action.
 <h1 id="streams">Streams</h1>
 
 <aside class="success">
-All endpoints that require <a href='#'>Partner-Level Access.</a> includes extended metadata. To receive extended access,
+All endpoints that require [Partner-Level Access](mailto:api@stocktwits.com) includes extended metadata. To receive extended access,
 please contact us about becoming a partner.
 </aside>
 
@@ -1723,7 +1724,7 @@ list of all the symbols a user is watching.</p>
 <p>Returns the most recent 30 messages for all non-private symbols</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 <h3 id="endpoint-information">Endpoint Information</h3>
@@ -2210,7 +2211,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 <p>Returns the most recent 30 messages containing equity symbols. This will not include futures or forex messages.</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 <h3 id="endpoint-information">Endpoint Information</h3>
@@ -2453,7 +2454,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 <p>Returns the most recent 30 messages for forex symbols. Example $EURUSD</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 <h3 id="endpoint-information">Endpoint Information</h3>
@@ -2749,7 +2750,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 <p>Returns the most recent 30 messages for futures symbols. Example $ES_F</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 <h3 id="endpoint-information">Endpoint Information</h3>
@@ -3039,7 +3040,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 <p>Returns the most recent 30 messages containing private symbols. Example $UBER</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 <h3 id="endpoint-information">Endpoint Information</h3>
@@ -3395,7 +3396,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 <p>Returns the most recent 30 messages for the specified list of symbols. Up to 10 symbols allowed.</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 
 <h3 id="endpoint-information">Endpoint Information</h3>
@@ -4061,7 +4062,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 
 <p>Create a StockTwits message. To upload a chart to accompany the message, pass a file using the <code class="prettyprint">chart</code> parameter.
 The API will check that the character count is under 140 and prevent duplicate message postings.
-<a href='/?#counting-characters'>Learn more about parameters and character counting.</a></p>
+<a href="#counting-characters">Learn more about parameters and character counting.</a></p>
 
 <p>The Message ID can be used to create your own link to the message as a landing page.
 This comes in handy in the case of a Chart where you might not want to create your own webpage or integrate the chart
@@ -4167,7 +4168,7 @@ into your application.</p>
 </thead><tbody>
 <tr>
 <td>body</td>
-<td>The body of the message. This parameter should be URL-encoded or entire request sent as multipart/form-data for all characters to submit properly. <a href='#'>Character count must be under 140.</a> (Required)</td>
+<td>The body of the message. This parameter should be URL-encoded or entire request sent as multipart/form-data for all characters to submit properly. <a href="#counting-characters">Character count must be under 140.</a> (Required)</td>
 </tr>
 <tr>
 <td>in_reply_to_message_id</td>
@@ -4283,13 +4284,58 @@ into your application.</p>
 
 <p>Like a message on StockTwits as the authenticating user.</p>
 <pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/messages/like.json <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
   -d <span class="s1">'id=60975379'</span>
 </code></pre>
 
 <blockquote>
-<p>If successful, the response will be a 204 No Content</p>
+<p>Response</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975379</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$AAPL going up from here"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-19T15:15:48Z"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eric Alford"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="nt">"conversation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"parent_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60974422</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"in_reply_to_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975320</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"replies"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"likes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+         </span><span class="mi">234328</span><span class="w">
+       </span><span class="p">]</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"reshares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"reshared_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"mentioned_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+     </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h3 id="endpoint-information">Endpoint Information</h3>
 
@@ -4345,8 +4391,46 @@ into your application.</p>
 </code></pre>
 
 <blockquote>
-<p>If successful, the response will be a 204 No Content</p>
+<p>Response</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975379</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$AAPL going up from here"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-19T15:15:48Z"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369117</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ericalford"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eric Alford"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"avatar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://avatars.stocktwits.com/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"avatar_url_ssl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-27"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"official"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"symbols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">686</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAPL"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Inc."</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+     </span><span class="nt">"conversation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"parent_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60974422</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"in_reply_to_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60975320</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"replies"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"reshares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"reshared_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"user_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"mentioned_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+     </span><span class="nt">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h3 id="endpoint-information">Endpoint Information</h3>
 
@@ -5051,7 +5135,7 @@ into your application.</p>
 <p>This update the contents of the specified watch list. Required parameters are the <code class="prettyprint">id</code> of the watch list that is to be
 updated and the new <code class="prettyprint">name</code> of the watch list.</p>
 <pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists/update/&lt;watchlist_id&gt;.json <span class="se">\</span>
-  -X PUT <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
   -d <span class="s1">'name=new_watchlist_name'</span>
 </code></pre>
@@ -5095,7 +5179,7 @@ updated and the new <code class="prettyprint">name</code> of the watch list.</p>
 </tr>
 <tr>
 <td>HTTP Methods:</td>
-<td>PUT</td>
+<td>POST</td>
 </tr>
 </tbody></table>
 
@@ -5122,7 +5206,7 @@ updated and the new <code class="prettyprint">name</code> of the watch list.</p>
 <p>This deletes the specified watch list. Required parameter is the ID of the watch list to be deleted, this is not the
 name of the watch list.</p>
 <pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/watchlists/destroy/&lt;watchlist_id&gt;.json <span class="se">\</span>
-  -X DELETE <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
 </code></pre>
 
@@ -5156,7 +5240,7 @@ name of the watch list.</p>
 </tr>
 <tr>
 <td>HTTP Methods:</td>
-<td>DELETE</td>
+<td>POST</td>
 </tr>
 </tbody></table>
 
@@ -5745,10 +5829,10 @@ is the <code class="prettyprint">user_id</code> of the user to unmute, not the u
 <p>This updates the properties of the authenticating user&rsquo;s account.</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 <pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/account/update.json <span class="se">\</span>
-  -X PUT <span class="se">\</span>
+  -X POST <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
   -d <span class="s1">'name=New Name'</span>
 </code></pre>
@@ -5813,7 +5897,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 </tr>
 <tr>
 <td>HTTP Methods:</td>
-<td>PUT</td>
+<td>POST</td>
 </tr>
 </tbody></table>
 
@@ -5998,7 +6082,7 @@ $5. These are updated in 5 minute intervals.</p>
 <p>Returns a list of messages deleted recently. This is to be used in conjunction with firehose access.</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 <pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/deletions/messages.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
@@ -6101,7 +6185,7 @@ This API end-point is only available through <a href='#'>Partner-Level Access.</
 <p>Returns a list of user accounts deleted recently. This is to be used in conjunction with firehose access.</p>
 
 <aside class="success">
-This API end-point is only available through <a href='#'>Partner-Level Access.</a>
+This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
 </aside>
 <pre class="highlight shell"><code>curl https://api.stocktwits.com/api/2/deletions/users.json <span class="se">\</span>
   -H <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span>
@@ -6242,7 +6326,7 @@ the codes, which may appear when working with the API:</p>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;ve been <a href='/?shell#rate-limiting'>rate limited</a></td>
+<td>Too Many Requests &ndash; You&rsquo;ve been <a href="#rate-limiting">rate limited</a></td>
 </tr>
 <tr>
 <td>500</td>
@@ -6257,6 +6341,356 @@ the codes, which may appear when working with the API:</p>
 <td>Gateway Timeout</td>
 </tr>
 </tbody></table>
+
+          <h1 id="widget">Widget</h1>
+
+<blockquote>
+<p>Copy &amp; Paste the code into your website:</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"stocktwits-widget-news"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'http://stocktwits.com'</span> <span class="na">style=</span><span class="s">'font-size: 0px;'</span><span class="nt">&gt;</span>StockTwits<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://stocktwits.com/addon/widget/2/widget-loader.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+<span class="nx">STWT</span><span class="p">.</span><span class="nx">Widget</span><span class="p">({</span>
+  <span class="na">container</span><span class="p">:</span> <span class="s1">'stocktwits-widget-news'</span><span class="p">,</span>
+  <span class="na">symbol</span><span class="p">:</span> <span class="s1">'AAPL'</span><span class="p">,</span>
+  <span class="na">width</span><span class="p">:</span> <span class="s1">'300'</span><span class="p">,</span>
+  <span class="na">height</span><span class="p">:</span> <span class="s1">'300'</span><span class="p">,</span>
+  <span class="na">limit</span><span class="p">:</span> <span class="s1">'15'</span><span class="p">,</span>
+  <span class="na">scrollbars</span><span class="p">:</span> <span class="s1">'true'</span><span class="p">,</span>
+  <span class="na">streaming</span><span class="p">:</span> <span class="s1">'true'</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">:</span> <span class="s1">'AAPL Ideas'</span><span class="p">,</span>
+  <span class="na">style</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">link_color</span><span class="p">:</span> <span class="s1">'4871a8'</span><span class="p">,</span>
+    <span class="na">link_hover_color</span><span class="p">:</span> <span class="s1">'4871a8'</span><span class="p">,</span>
+    <span class="na">header_text_color</span><span class="p">:</span> <span class="s1">'000000'</span><span class="p">,</span>
+    <span class="na">border_color</span><span class="p">:</span> <span class="s1">'cecece'</span><span class="p">,</span>
+    <span class="na">divider_color</span><span class="p">:</span> <span class="s1">'cecece'</span><span class="p">,</span>
+    <span class="na">divider_color</span><span class="p">:</span> <span class="s1">'cecece'</span><span class="p">,</span>
+    <span class="na">divider_type</span><span class="p">:</span> <span class="s1">'solid'</span><span class="p">,</span>
+    <span class="na">box_color</span><span class="p">:</span> <span class="s1">'f5f5f5'</span><span class="p">,</span>
+    <span class="na">stream_color</span><span class="p">:</span> <span class="s1">'ffffff'</span><span class="p">,</span>
+    <span class="na">text_color</span><span class="p">:</span> <span class="s1">'000000'</span><span class="p">,</span>
+    <span class="na">time_color</span><span class="p">:</span> <span class="s1">'999999'</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre>
+
+<p>Our custom widget application allows you to enter specific parameters into the fields below and generate code to add a
+custom widget to your website, showing a live feed of your company ticker page.</p>
+
+<p><img alt="Widget Sample" src="images/widget_sample.png" /></p>
+
+<p>The container variable <code class="prettyprint">stocktwits-widget-news</code> is the name of the surrounding div ID that must be included to embed
+the widget. You may change the div ID to whatever you want so long as the container variable is set to the same ID.</p>
+
+<p>You can customize the widget format with the following options by including the variable and its value in the
+STWT widget array.</p>
+
+<h3 id="formatting-options">Formatting Options</h3>
+
+<p><strong>user and symbol are mutually exclusive</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td>ID or login of user stream you wish to show (Required)</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>ID or symbol of symbol stream you wish to show (Required)</td>
+</tr>
+<tr>
+<td>avatars (0 or 1)</td>
+<td>Display avatars (Optional. Default = 1)</td>
+</tr>
+<tr>
+<td>scrollbars (0 or 1)</td>
+<td>Display scrollbars (Optional. Default = 1)</td>
+</tr>
+<tr>
+<td>times (0 or 1)</td>
+<td>Display date/time (Optional. Default = 1)</td>
+</tr>
+<tr>
+<td>streaming (0 or 1)</td>
+<td>Stream new results (Optional. Default = 1)</td>
+</tr>
+<tr>
+<td>header (0 or 1)</td>
+<td>Display header or title (Optional. Default = 1)</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Number of results, maximum is 30 (Optional. Default = 15)</td>
+</tr>
+<tr>
+<td>width</td>
+<td>Width of widget in pixels (Optional. Default = 300)</td>
+</tr>
+<tr>
+<td>height</td>
+<td>Height of widget in pixels (Optional. Default = 300)</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title of widget (Optional. Default depends on stream)</td>
+</tr>
+</tbody></table>
+
+<h3 id="advanced-styling-options">Advanced Styling Options</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>border_color</td>
+<td>Color of the border (default = cecece)</td>
+</tr>
+<tr>
+<td>border_color_2</td>
+<td>Color of the second border (default = cecece)</td>
+</tr>
+<tr>
+<td>box_color</td>
+<td>Color of the box (default = f5f5f5)</td>
+</tr>
+<tr>
+<td>header_text_color</td>
+<td>Color of the header text (default = 000)</td>
+</tr>
+<tr>
+<td>divider_color</td>
+<td>Color of the divider (default = cecece)</td>
+</tr>
+<tr>
+<td>stream_color</td>
+<td>Color of the stream background (default = fff)</td>
+</tr>
+<tr>
+<td>username_color</td>
+<td>Color of the username link (default = 600d0b)</td>
+</tr>
+<tr>
+<td>username_hover_color</td>
+<td>Color of the username link when you hover (default = 600d0b)</td>
+</tr>
+<tr>
+<td>username_font</td>
+<td>Font family (default = Arial, Tahoma, sans-serif)</td>
+</tr>
+<tr>
+<td>username_size</td>
+<td>Size of font in pixels (default = 13)</td>
+</tr>
+<tr>
+<td>divider_type</td>
+<td>Style of the dividing line between messages (default = dotted)</td>
+</tr>
+<tr>
+<td>link_color</td>
+<td>Color of links (default = 4871a8)</td>
+</tr>
+<tr>
+<td>link_hover_color</td>
+<td>Color of links when you hover (default = 4871a8)</td>
+</tr>
+<tr>
+<td>link_ticker_color</td>
+<td>Color of ticker links (default = 4871a8)</td>
+</tr>
+<tr>
+<td>link_ticker_hover_color</td>
+<td>Color of ticker links when you hover (default = 4871a8)</td>
+</tr>
+<tr>
+<td>time_color</td>
+<td>Color of time (default = 999)</td>
+</tr>
+<tr>
+<td>text_color</td>
+<td>Text color (default = 000)</td>
+</tr>
+<tr>
+<td>font</td>
+<td>Font family (default = Arial, Tahoma, sans-serif)</td>
+</tr>
+<tr>
+<td>font_size</td>
+<td>Size of font in pixels (default = 13)</td>
+</tr>
+<tr>
+<td>time_font_size</td>
+<td>Font size of time (default = 11)</td>
+</tr>
+</tbody></table>
+
+          <h1 id="stocktwits-buttons">StockTwits Buttons</h1>
+
+<p>Add StockTwits Buttons to your site so users can share your content on StockTwits or so you can drive users to follow
+you on StockTwits. Use of StockTwits buttons is subject to <a href="#content-display-requirements">StockTwits Display Guidelines</a>
+and <a href="#terms-amp-conditions">Terms and Conditions.</a></p>
+
+<h2 id="share-button">Share Button</h2>
+
+<blockquote>
+<p>Copy &amp; Paste the code into your website:</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://stocktwits.com/widgets/share"</span> <span class="na">id=</span><span class="s">"stocktwits-share-button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://stocktwits.com/assets/widget/stocktwits_share.png"</span> <span class="na">alt=</span><span class="s">"Share on StockTwits"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://stocktwits.com/addon/button/share.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+
+<p><img alt="Share Button" src="https://stocktwits.com/images/widget/stocktwits_share.png" /></p>
+
+<p>The share button allows your visitors to seamlessly share ideas and links across the StockTwits network whenever
+they&rsquo;re on your website. Adding it will place a StockTwits button on your site, which will pop up a message box to
+share StockTwits content whenever a user clicks on the button. The message box will include the current page title and
+URL into the message by default.</p>
+
+<h3 id="javascript-disabled">JavaScript Disabled</h3>
+
+<p>If a user doesn&rsquo;t have JavaScript turned on, the button will not be displayed but the text &ldquo;Share on StockTwits&rdquo; will
+render with a link to the share functionality.</p>
+
+<h3 id="custom-message">Custom Message</h3>
+
+<p>Additional parameters may also be included in the message by default by setting the data-text value. For example, to
+have a user&rsquo;s message include &ldquo;Go to my site http://stocktwits.com&rdquo; whenever the button is clicked on, simply set that
+value in <code class="prettyprint">data-text</code></p>
+
+<h2 id="follow-button">Follow Button</h2>
+
+<p>Add a StockTwits Follow button to your site to drive your users and visitors to follow your account on StockTwits.</p>
+
+<p>The StockTwits follow button comes in three different colors - silver, graphite, and blue. Below is the code to add to
+your site. Be sure to replace &lsquo;StockTwits&rsquo; in the URL with your StockTwits username (http://stocktwits.com/username) in
+the code below:</p>
+
+<blockquote>
+<p>Silver</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://stocktwits.com/StockTwits"</span> <span class="na">id=</span><span class="s">"stocktwits-follow-button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://stocktwits.com/assets/badges/FOLLOW_US_SILVER.png"</span> <span class="na">alt=</span><span class="s">"Follow Us on StockTwits"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+
+<p><img alt="Share Button" src="http://stocktwits.com/assets/badges/FOLLOW_US_SILVER.png" /></p>
+
+<blockquote>
+<p>Graphite</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://stocktwits.com/StockTwits"</span> <span class="na">id=</span><span class="s">"stocktwits-follow-button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://stocktwits.com/assets/badges/FOLLOW_US_GRAPHITE.png"</span> <span class="na">alt=</span><span class="s">"Follow Us on StockTwits"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+
+<p><img alt="Share Button" src="http://stocktwits.com/assets/badges/FOLLOW_US_GRAPHITE.png" /></p>
+
+<blockquote>
+<p>Blue</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://stocktwits.com/StockTwits"</span> <span class="na">id=</span><span class="s">"stocktwits-follow-button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://stocktwits.com/assets/badges/FOLLOW_US_RED.png"</span> <span class="na">alt=</span><span class="s">"Follow Us on StockTwits"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+
+<p><img alt="Share Button" src="http://stocktwits.com/assets/badges/FOLLOW_US_RED.png" /></p>
+
+          <h1 id="stocktwits-logos">StockTwits Logos</h1>
+
+<h2 id="download-a-logo">Download a Logo</h2>
+
+<p><strong>Please do not alter the StockTwits logos.</strong></p>
+
+<p><img alt="Share Button" src="http://assets1.stocktwits.net/assets/logo/StockTwits_Blue_sample-bda6ce1a59a049ade406f6c8697e73d2.jpg" /></p>
+
+<p><strong>Download</strong>
+<a href="http://assets3.stocktwits.net/assets/logo/StockTwits_BluePNG-09d2b9afd39c226e815be1bf93e2b2da.png">PNG</a>
+<a href="http://assets3.stocktwits.net/assets/logo/StockTwits_BlueJPG-d69773d70cc97a6e70e31729d1756212.jpg">JPG</a>
+<a href="http://assets2.stocktwits.net/assets/logo/StockTwits_Blue-c44ef03f4620dcf81cdebd34237497a3.eps">EPS</a></p>
+
+<p><img alt="Share Button" src="http://assets3.stocktwits.net/assets/logo/StockTwits_White_sample-e8e031d4e79f02bcbe5e31f456f22fe1.jpg" /></p>
+
+<p><strong>Download</strong>
+<a href="http://assets2.stocktwits.net/assets/logo/StockTwits_WhitePNG-d1f3704c717c953f53843b759cc8421e.png">PNG</a>
+<a href="http://assets2.stocktwits.net/assets/logo/StockTwits_WhiteJPG-adf03231284943e36538b77a010be556.jpg">JPG</a>
+<a href="http://assets2.stocktwits.net/assets/logo/StockTwits_White-154c8262726eac2026678d54b82e166d.eps">EPS</a></p>
+
+<h2 id="add-a-badge-to-your-site">Add a badge to your site</h2>
+
+<blockquote>
+<p>640px x 64px</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://stocktwits.com"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://stocktwits.com/assets/badges/ST_64x64.png"</span> <span class="na">style=</span><span class="s">"width: 64px; height: 64px;"</span> <span class="na">alt=</span><span class="s">"I'm on StockTwits"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>48px x 48px</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://stocktwits.com"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://stocktwits.com/assets/badges/ST_48x48.png"</span> <span class="na">style=</span><span class="s">"width: 48px; height: 48px;"</span> <span class="na">alt=</span><span class="s">"I'm on StockTwits"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>32px x 32px</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://stocktwits.com"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://stocktwits.com/assets/badges/ST_32x32.png"</span> <span class="na">style=</span><span class="s">"width: 32px; height: 32px;"</span> <span class="na">alt=</span><span class="s">"I'm on StockTwits"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>16px x 16px</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://stocktwits.com"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://stocktwits.com/assets/badges/ST_16x16.png"</span> <span class="na">style=</span><span class="s">"width: 16px; height: 16px;"</span> <span class="na">alt=</span><span class="s">"I'm on StockTwits"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+
+<p>Show your friends and readers where you tweet what you&rsquo;re trading. Copy the code under the badge you would like on your
+site.</p>
+
+<p><img alt="st_badge" src="http://assets1.stocktwits.net/assets/badges/ST_64x64-3d0f7bca4ceaa12675714ca1ab912ecf.png" /></p>
+
+<p>640px x 64px</p>
+
+<p><img alt="st_badge" src="http://assets3.stocktwits.net/assets/badges/ST_48x48-bc967c38ef249b7736da62ab4a911783.png" /></p>
+
+<p>48px x 48px</p>
+
+<p><img alt="st_badge" src="http://assets1.stocktwits.net/assets/badges/ST_32x32-5a14b7b41f1cc0584e35456dd812947a.png" /></p>
+
+<p>32px x 32px</p>
+
+<p><img alt="st_badge" src="http://assets0.stocktwits.net/assets/badges/ST_16x16-3adc240c78fa804df32f41cb1b137c39.png" /></p>
+
+<p>16px x 16px</p>
+
+<h3 id="looking-for-more-interactivity">Looking for more interactivity?</h3>
+
+<p><a href="#stocktwits-buttons">Add a StockTwits button to your website</a></p>
 
           <h1 id="terms-amp-conditions">Terms &amp; Conditions</h1>
 
