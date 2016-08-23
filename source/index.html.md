@@ -3,7 +3,7 @@ title: StockTwits API
 
 language_tabs:
   - json: Non-Partner
-  - ruby: Partner
+  - extended-json: Partner
 
 toc_footers:
   - <a href='http://stocktwits.com/developers/apps/new'>Register your App</a>
@@ -251,7 +251,7 @@ curl https://api.stocktwits.com/api/2/streams/friends.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -407,6 +407,7 @@ curl https://api.stocktwits.com/api/2/streams/friends.json \
         "sentiment": null
       }
     }
+  ]
 }
 ```
 
@@ -526,6 +527,15 @@ curl https://api.stocktwits.com/api/2/oauth/token \
 }
 ```
 
+```extended-json
+{
+  "user_id": 1,
+  "access_token": "<access_token>",
+  "scope": "read",
+  "username": "userabc"
+}
+```
+
 <a href='http://stocktwits.com/developers/apps/new'>Register your application</a> to get an API key and secret.
 Your API consumer key is your `client_id` and you API consumer secret is your `client_secret`.
 
@@ -595,7 +605,7 @@ to re-authenticate the user with that scope to continue that action.
 # Streams
 
 <aside class="success">
-All endpoints that require [Partner-Level Access](mailto:api@stocktwits.com) includes extended metadata. To receive extended access,
+All endpoints that require <a href='#'>Partner-Level Access</a> includes extended metadata. To receive extended access,
 please contact us about becoming a partner.
 </aside>
 
@@ -656,7 +666,7 @@ curl https://api.stocktwits.com/api/2/streams/user/<username>.json
     },
     {
       "id": 60899441,
-      "body": "$TSLA good read about earnings: http://www.nasamoonhoax.com/tesla-post-earnings-analysis",
+      "body": "$TSLA good read about earnings: http://www.nasamoonhoax.com/tsla-post-earnings-analysis",
       "created_at": "2016-08-18T17:20:47Z",
       "user": {
         "id": 369117,
@@ -676,10 +686,10 @@ curl https://api.stocktwits.com/api/2/streams/user/<username>.json
       ],
       "links":[
         {
-          "title":"There's real money in AAPL",
-          "url":"http://www.media.com/aapl-post-earnings-analysis",
-          "shortened_expanded_url":"media.com/aapl-post-earnings-...",
-          "description":"The week's news showed how Apple have cemented their place in the ranks of big tech, investors told CNBC.",
+          "title":"There's real money in TSLA",
+          "url":"http://www.media.com/tsla-post-earnings-analysis",
+          "shortened_expanded_url":"media.com/tsla-post-earnings-...",
+          "description":"The week's news showed how Tesla have cemented their place in the ranks of big tech, investors told CNBC.",
           "image":"http://fm.cnbc.com/applications/cnbc.com/staticcontent/img/cnbc_logo.gif",
           "created_at":"2016-08-20T12:18:27Z",
           "source":{
@@ -729,7 +739,7 @@ curl https://api.stocktwits.com/api/2/streams/user/<username>.json
 }
 ```
 
-```ruby
+```extended-json
 {
   "user": {
     "id": 369117,
@@ -814,7 +824,7 @@ curl https://api.stocktwits.com/api/2/streams/user/<username>.json
     },
     {
       "id": 60899441,
-      "body": "$TSLA good read about earnings: http://www.nasamoonhoax.com/tesla-post-earnings-analysis",
+      "body": "$TSLA good read about earnings: http://www.nasamoonhoax.com/tsla-post-earnings-analysis",
       "created_at": "2016-08-18T17:20:47Z",
       "user": {
         "id": 369117,
@@ -864,10 +874,10 @@ curl https://api.stocktwits.com/api/2/streams/user/<username>.json
       ],
       "links":[
         {
-          "title":"There's real money in AAPL",
-          "url":"http://www.media.com/aapl-post-earnings-analysis",
-          "shortened_expanded_url":"media.com/aapl-post-earnings-...",
-          "description":"The week's news showed how Apple have cemented their place in the ranks of big tech, investors told CNBC.",
+          "title":"There's real money in TSLA",
+          "url":"http://www.media.com/tsla-post-earnings-analysis",
+          "shortened_expanded_url":"media.com/tsla-post-earnings-...",
+          "description":"The week's news showed how Tesla have cemented their place in the ranks of big tech, investors told CNBC.",
           "image":"http://fm.cnbc.com/applications/cnbc.com/staticcontent/img/cnbc_logo.gif",
           "created_at":"2016-08-20T12:18:27Z",
           "source":{
@@ -1095,7 +1105,7 @@ curl https://api.stocktwits.com/api/2/streams/symbol/<symbol>.json
 }
 ```
 
-```ruby
+```extended-json
 {
   "symbol": {
     "id": 686,
@@ -1476,7 +1486,7 @@ curl https://api.stocktwits.com/api/2/streams/friends.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -1831,7 +1841,7 @@ curl https://api.stocktwits.com/api/2/streams/mentions.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -2159,7 +2169,7 @@ curl https://api.stocktwits.com/api/2/streams/watchlist/:id.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "watchlist": {
     "id": 12345,
@@ -2241,7 +2251,7 @@ curl https://api.stocktwits.com/api/2/streams/watchlist/:id.json \
     },
     {
       "id": 60899441,
-      "body": "$TSLA good read about earnings: http://www.media.com/aapl-post-earnings-analysis",
+      "body": "$TSLA good read about earnings: http://www.media.com/tsla-post-earnings-analysis",
       "created_at": "2016-08-18T17:20:47Z",
       "user": {
         "id": 1036,
@@ -2652,7 +2662,7 @@ curl https://api.stocktwits.com/api/2/streams/all.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -2894,7 +2904,7 @@ curl https://api.stocktwits.com/api/2/streams/all.json \
 Returns the most recent 30 messages for all non-private symbols
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ### Endpoint Information
@@ -3081,7 +3091,7 @@ curl https://api.stocktwits.com/api/2/streams/charts.json
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -3583,7 +3593,7 @@ curl https://api.stocktwits.com/api/2/streams/equities.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -3825,7 +3835,7 @@ curl https://api.stocktwits.com/api/2/streams/equities.json \
 Returns the most recent 30 messages containing equity symbols. This will not include futures or forex messages.
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ### Endpoint Information
@@ -4030,7 +4040,7 @@ curl https://api.stocktwits.com/api/2/streams/forex.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor":{
     "more": true,
@@ -4207,7 +4217,7 @@ curl https://api.stocktwits.com/api/2/streams/forex.json \
 Returns the most recent 30 messages for forex symbols. Example $EURUSD
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ### Endpoint Information
@@ -4465,7 +4475,7 @@ curl https://api.stocktwits.com/api/2/streams/futures.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor":{
     "more":true,
@@ -4695,7 +4705,7 @@ curl https://api.stocktwits.com/api/2/streams/futures.json \
 Returns the most recent 30 messages for futures symbols. Example $ES_F
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ### Endpoint Information
@@ -4947,7 +4957,7 @@ curl https://api.stocktwits.com/api/2/streams/private_companies.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor":{
     "more":true,
@@ -5171,7 +5181,7 @@ curl https://api.stocktwits.com/api/2/streams/private_companies.json \
 Returns the most recent 30 messages containing private symbols. Example $UBER
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ### Endpoint Information
@@ -5326,7 +5336,7 @@ curl https://api.stocktwits.com/api/2/streams/suggested.json
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -5401,7 +5411,7 @@ curl https://api.stocktwits.com/api/2/streams/suggested.json
     },
     {
       "id": 60899441,
-      "body": "$TSLA good read about earnings: http://www.media.com/aapl-post-earnings-analysis",
+      "body": "$TSLA good read about earnings: http://www.media.com/tsla-post-earnings-analysis",
       "created_at": "2016-08-18T17:20:47Z",
       "user": {
         "id": 1036,
@@ -5787,7 +5797,7 @@ curl https://api.stocktwits.com/api/2/streams/symbols.json \
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -6005,7 +6015,7 @@ curl https://api.stocktwits.com/api/2/streams/symbols.json \
 Returns the most recent 30 messages for the specified list of symbols. Up to 10 symbols allowed.
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ### Endpoint Information
@@ -6161,7 +6171,7 @@ curl https://api.stocktwits.com/api/2/streams/trending.json
 }
 ```
 
-```ruby
+```extended-json
 {
   "cursor": {
     "more": true,
@@ -6528,6 +6538,126 @@ curl https://api.stocktwits.com/api/2/search.json \
 }
 ```
 
+```extended-json
+{
+  "results":[
+    {
+      "type":"symbol",
+      "title":"StockTwits Education",
+      "symbol":"STUDY",
+      "exchange":"MISC",
+      "id":8677
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits",
+      "symbol":"STWIT",
+      "exchange":"PRIVATE",
+      "id":7989
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits Predictions",
+      "symbol":"PREDICT",
+      "exchange":"MISC",
+      "id":9217
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits Social Web Index",
+      "symbol":"SWEB",
+      "exchange":"MISC",
+      "id":9690
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits IR Demo Corporation",
+      "symbol":"DEMO",
+      "exchange":"MISC",
+      "id":9696
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits NCAA Bracket Challenge",
+      "symbol":"NCAA",
+      "exchange":"MISC",
+      "id":9579
+    },
+    {
+      "type":"symbol",
+      "title":"StockTwits Roast",
+      "symbol":"ROAST",
+      "exchange":"MISC",
+      "id":9439
+    },
+    {
+      "type":"user",
+      "name":"StockTwits",
+      "username":"StockTwits",
+      "id":170,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/170/thumb-1409235653.png?1409235653",
+      "official":true
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Data",
+      "username":"StockTwitsData",
+      "id":206492,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/206492/thumb-1357904126.png?1357904126",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Charts",
+      "username":"chartly",
+      "id":8648,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/8648/thumb-1344904673.png?1344904673",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Help Desk",
+      "username":"StockTwitsHelp",
+      "id":8462,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/8462/thumb-1412619441.png?1412619441",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits TV",
+      "username":"StockTwitsTV",
+      "id":5245,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/5245/thumb-1270047545.png?1270047545",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits University",
+      "username":"StockTwitsU",
+      "id":21051,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/21051/thumb-1439311816.png?1439311816",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"John Melloy",
+      "username":"stocktwitsjohn",
+      "id":269009,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/269009/thumb-1381334240.png?1381334240",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Network",
+      "username":"STNet",
+      "id":25677,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/25677/thumb-1286811272.png?1286811272",
+      "official":false
+    }
+  ]
+}
+```
+
 This allows an API application to search for a symbol or user. 30 Results will be a combined list of symbols and users.
 
 ### Endpoint Information
@@ -6569,6 +6699,20 @@ curl https://api.stocktwits.com/api/2/search/symbols.json \
 }
 ```
 
+```extended-json
+{
+  "results":[
+    {
+      "type":"symbol",
+      "title":"Apple Inc.",
+      "symbol":"AAPL",
+      "exchange":"NASDAQ",
+      "id":686
+    }
+  ]
+}
+```
+
 This allows an API application to search for a symbol directly. 30 Results will return only ticker symbols.
 
 ### Endpoint Information
@@ -6597,6 +6741,133 @@ curl https://api.stocktwits.com/api/2/search/users.json \
 > Response
 
 ```json
+{
+  "results":[
+    {
+      "type":"user",
+      "name":"StockTwits",
+      "username":"StockTwits",
+      "id":170,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/170/thumb-1409235653.png?1409235653",
+      "official":true
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Data",
+      "username":"StockTwitsData",
+      "id":206492,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/206492/thumb-1357904126.png?1357904126",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Charts",
+      "username":"chartly",
+      "id":8648,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/8648/thumb-1344904673.png?1344904673",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Help Desk",
+      "username":"StockTwitsHelp",
+      "id":8462,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/8462/thumb-1412619441.png?1412619441",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits TV",
+      "username":"StockTwitsTV",
+      "id":5245,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/5245/thumb-1270047545.png?1270047545",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits University",
+      "username":"StockTwitsU",
+      "id":21051,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/21051/thumb-1439311816.png?1439311816",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"John Melloy",
+      "username":"stocktwitsjohn",
+      "id":269009,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/269009/thumb-1381334240.png?1381334240",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Network",
+      "username":"STNet",
+      "id":25677,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/25677/thumb-1286811272.png?1286811272",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"The StockTwits Squad Car",
+      "username":"STsquadcar",
+      "id":81704,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/81704/thumb-1306871723.png?1306871723",
+      "official":true
+    },
+    {
+      "type":"user",
+      "name":"StockTwits FX",
+      "username":"StockTwitsFX",
+      "id":19569,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/19569/thumb-1280172302.png?1280172302",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StocktwitsHater",
+      "username":"StocktwitsHater",
+      "id":495,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/495/thumb-1319565281.png?1319565281",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Pump Patrol",
+      "username":"ST_PumpPatrol",
+      "id":479628,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/479628/thumb-1425506727.png?1425506727",
+      "official":true
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Awesome!",
+      "username":"STawesome",
+      "id":37943,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/37943/thumb-1303909414.png?1303909414",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits IR",
+      "username":"StockTwitsIR",
+      "id":35843,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/35843/thumb-1320352066.png?1320352066",
+      "official":false
+    },
+    {
+      "type":"user",
+      "name":"StockTwits Links",
+      "username":"StockTwitsLinks",
+      "id":222797,
+      "avatar_url":"https://s3.amazonaws.com/st-avatars/production/222797/thumb-1364493882.png?1364493882",
+      "official":false
+    }
+  ]
+}
+```
+
+```extended-json
 {
   "results":[
     {
@@ -6813,6 +7084,76 @@ curl https://api.stocktwits.com/api/2/messages/create.json \
 }
 ```
 
+```extended-json
+{
+  "message": {
+    "id": 60975379,
+    "body": "Creating a new message with a chart. $ticker",
+    "created_at": "2016-08-19T15:15:48Z",
+    "user": {
+      "id": 1036,
+      "username": "zerobeta",
+      "name": "Justin Paterno",
+      "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+      "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+      "join_date": "2011-03-17",
+      "official": true,
+      "followers": 166,
+      "following": 119,
+      "ideas": 856,
+      "watchlist_stocks_count": 32,
+      "like_count": 398,
+      "subscribers_count": 3,
+      "subscribed_to_count": 1,
+      "location": "New York, NY",
+      "bio": "President at StockTwits. Tar Heel. Lover of markets.",
+      "website_url": "http://justinpaterno.com",
+      "trading_strategy": {
+        "assets_frequently_traded": [
+          "Equities"
+        ],
+        "approach": "Momentum",
+        "holding_period": "Swing Trader",
+        "experience": "Intermediate"
+      }
+    },
+    "symbols": [
+      {
+        "id": 686,
+        "symbol": "TICKER",
+        "title": "Ticker Inc.",
+        "exchange": "NASDAQ",
+        "sector": null,
+        "industry": null,
+        "trending_score": -0.971114,
+        "watchlist_count": 5576
+      }
+    ],
+    "prices": [
+      {
+        "id": 121135,
+        "symbol": "TICKER",
+        "price": "225.34"
+      }
+    ],
+    "reshares": {
+      "reshared_count": 0,
+      "user_ids": []
+    },
+    "mentioned_users": [],
+    "entities": {
+      "chart": {
+        "thumb": "http://charts.stocktwits.com/production/small_61042991.png",
+        "large": "http://charts.stocktwits.com/production/large_61042991.png",
+        "original": "http://charts.stocktwits.com/production/original_61042991.",
+        "url": "http://charts.stocktwits.com/production/original_61042991."
+      },
+      "sentiment": null
+    }
+  }
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -6862,6 +7203,76 @@ curl https://api.stocktwits.com/api/2/messages/show/<message_id>.json
         "id": 686,
         "symbol": "TICKER",
         "title": "Ticker Inc."
+      }
+    ],
+    "reshares": {
+      "reshared_count": 0,
+      "user_ids": []
+    },
+    "mentioned_users": [],
+    "entities": {
+      "chart": {
+        "thumb": "http://charts.stocktwits.com/production/small_61042991.png",
+        "large": "http://charts.stocktwits.com/production/large_61042991.png",
+        "original": "http://charts.stocktwits.com/production/original_61042991.",
+        "url": "http://charts.stocktwits.com/production/original_61042991."
+      },
+      "sentiment": null
+    }
+  }
+}
+```
+
+```extended-json
+{
+  "message": {
+    "id": 60975379,
+    "body": "Creating a new message with a chart. $ticker",
+    "created_at": "2016-08-19T15:15:48Z",
+    "user": {
+      "id": 1036,
+      "username": "zerobeta",
+      "name": "Justin Paterno",
+      "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+      "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+      "join_date": "2011-03-17",
+      "official": true,
+      "followers": 166,
+      "following": 119,
+      "ideas": 856,
+      "watchlist_stocks_count": 32,
+      "like_count": 398,
+      "subscribers_count": 3,
+      "subscribed_to_count": 1,
+      "location": "New York, NY",
+      "bio": "President at StockTwits. Tar Heel. Lover of markets.",
+      "website_url": "http://justinpaterno.com",
+      "trading_strategy": {
+        "assets_frequently_traded": [
+          "Equities"
+        ],
+        "approach": "Momentum",
+        "holding_period": "Swing Trader",
+        "experience": "Intermediate"
+      }
+    },
+    "symbols": [
+      {
+        "id": 686,
+        "symbol": "TICKER",
+        "title": "Ticker Inc.",
+        "exchange": "NASDAQ",
+        "sector": null,
+        "industry": null,
+        "trending_score": -0.971114,
+        "watchlist_count": 5576
+      }
+    ],
+    "prices": [
+      {
+        "id": 121135,
+        "symbol": "TICKER",
+        "price": "225.34"
       }
     ],
     "reshares": {
@@ -6958,6 +7369,82 @@ curl https://api.stocktwits.com/api/2/messages/like.json \
 }
 ```
 
+```extended-json
+{
+  "message": {
+     "id": 60975379,
+     "body": "$AAPL going up from here",
+     "created_at": "2016-08-19T15:15:48Z",
+     "user": {
+       "id": 369117,
+       "username": "ericalford",
+       "name": "Eric Alford",
+       "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+       "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+       "join_date": "2014-06-27",
+       "official": true,
+       "followers": 166,
+       "following": 119,
+       "ideas": 397,
+       "watchlist_stocks_count": 28,
+       "like_count": 398,
+       "subscribers_count": 3,
+       "subscribed_to_count": 1,
+       "location": "New York, NY",
+       "bio": "Director of Engineering at StockTwits.",
+       "website_url": "http://www.twitter.com/ericalford",
+       "trading_strategy": {
+         "assets_frequently_traded": [
+           "Equities"
+         ],
+         "approach": "Momentum",
+         "holding_period": "Swing Trader",
+         "experience": "Intermediate"
+       }
+     },
+     "symbols": [
+       {
+         "id": 686,
+         "symbol": "AAPL",
+         "title": "Apple Inc.",
+         "exchange": "NASDAQ",
+         "sector": null,
+         "industry": null,
+         "trending_score": 14.9595,
+         "watchlist_count": 5576
+       }
+     ],
+     "prices": [
+       {
+         "id": 12110,
+         "symbol": "AAPL",
+         "price": "99.34"
+       }
+     ],
+     "conversation": {
+       "parent_message_id": 60974422,
+       "in_reply_to_message_id": 60975320,
+       "parent": false,
+       "replies": 5
+     },
+     "likes": {
+       "total": 1,
+       "user_ids": [
+         234328
+       ]
+     },
+     "reshares": {
+       "reshared_count": 0,
+       "user_ids": []
+     },
+     "mentioned_users": [],
+     "entities": {
+       "sentiment": null
+     }
+   }
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7007,6 +7494,76 @@ curl https://api.stocktwits.com/api/2/messages/unlike.json \
          "id": 686,
          "symbol": "AAPL",
          "title": "Apple Inc."
+       }
+     ],
+     "conversation": {
+       "parent_message_id": 60974422,
+       "in_reply_to_message_id": 60975320,
+       "parent": false,
+       "replies": 5
+     },
+     "reshares": {
+       "reshared_count": 0,
+       "user_ids": []
+     },
+     "mentioned_users": [],
+     "entities": {
+       "sentiment": null
+     }
+   }
+}
+```
+
+```extended-json
+{
+  "message": {
+     "id": 60975379,
+     "body": "$AAPL going up from here",
+     "created_at": "2016-08-19T15:15:48Z",
+     "user": {
+       "id": 369117,
+       "username": "ericalford",
+       "name": "Eric Alford",
+       "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+       "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+       "join_date": "2014-06-27",
+       "official": true,
+       "followers": 166,
+       "following": 119,
+       "ideas": 397,
+       "watchlist_stocks_count": 28,
+       "like_count": 398,
+       "subscribers_count": 3,
+       "subscribed_to_count": 1,
+       "location": "New York, NY",
+       "bio": "Director of Engineering at StockTwits.",
+       "website_url": "http://www.twitter.com/ericalford",
+       "trading_strategy": {
+         "assets_frequently_traded": [
+           "Equities"
+         ],
+         "approach": "Momentum",
+         "holding_period": "Swing Trader",
+         "experience": "Intermediate"
+       }
+     },
+     "symbols": [
+       {
+         "id": 686,
+         "symbol": "AAPL",
+         "title": "Apple Inc.",
+         "exchange": "NASDAQ",
+         "sector": null,
+         "industry": null,
+         "trending_score": 14.9595,
+         "watchlist_count": 5576
+       }
+     ],
+     "prices": [
+       {
+         "id": 12110,
+         "symbol": "AAPL",
+         "price": "99.34"
        }
      ],
      "conversation": {
@@ -7095,6 +7652,115 @@ curl https://api.stocktwits.com/api/2/graph/blocking.json \
 }
 ```
 
+```extended-json
+{
+  "cursor":{
+    "more":true,
+    "since":1450610,
+    "max":295259
+  },
+  "users":[
+    {
+      "id":304332,
+      "username":"sorcefm",
+      "name":"chaz",
+      "avatar_url":"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png",
+      "join_date":"2014-01-23",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":2,
+      "following":0,
+      "ideas":168,
+      "watchlist_stocks_count":11,
+      "like_count":18,
+      "subscribers_count":0,
+      "subscribed_to_count":0,
+      "following_stocks":0,
+      "location":null,
+      "bio":null,
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+
+        ],
+        "approach":null,
+        "holding_period":null,
+        "experience":null
+      }
+    },
+    {
+      "id":802670,
+      "username":"francine86",
+      "name":"Francine Bohnen",
+      "avatar_url":"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png",
+      "join_date":"2016-07-25",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":3,
+      "following":60,
+      "ideas":777,
+      "watchlist_stocks_count":0,
+      "like_count":0,
+      "subscribers_count":1,
+      "subscribed_to_count":0,
+      "following_stocks":0,
+      "location":"",
+      "bio":null,
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+
+        ],
+        "approach":null,
+        "holding_period":null,
+        "experience":null
+      }
+    },
+    {
+      "id":295259,
+      "username":"Smurfologist",
+      "name":"Melvin Woods",
+      "avatar_url":"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
+      "join_date":"2013-12-31",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":85,
+      "following":105,
+      "ideas":2502,
+      "watchlist_stocks_count":313,
+      "like_count":16823,
+      "subscribers_count":2,
+      "subscribed_to_count":1,
+      "following_stocks":5,
+      "location":"",
+      "bio":"I don&#39;t mind having all of my eggs in one basket, especially if it is made of titanium and contains titanium eggs!!!",
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+          "Equities",
+          "Options"
+        ],
+        "approach":"Fundamental",
+        "holding_period":"Position Trader",
+        "experience":"Intermediate"
+      }
+    }
+  ]
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7157,6 +7823,115 @@ curl https://api.stocktwits.com/api/2/graph/muting.json \
       "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
       "join_date":"2013-12-31",
       "official":false
+    }
+  ]
+}
+```
+
+```extended-json
+{
+  "cursor":{
+    "more":true,
+    "since":1450610,
+    "max":295259
+  },
+  "users":[
+    {
+      "id":304332,
+      "username":"sorcefm",
+      "name":"chaz",
+      "avatar_url":"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png",
+      "join_date":"2014-01-23",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":2,
+      "following":0,
+      "ideas":168,
+      "watchlist_stocks_count":11,
+      "like_count":18,
+      "subscribers_count":0,
+      "subscribed_to_count":0,
+      "following_stocks":0,
+      "location":null,
+      "bio":null,
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+
+        ],
+        "approach":null,
+        "holding_period":null,
+        "experience":null
+      }
+    },
+    {
+      "id":802670,
+      "username":"francine86",
+      "name":"Francine Bohnen",
+      "avatar_url":"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png",
+      "join_date":"2016-07-25",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":3,
+      "following":60,
+      "ideas":777,
+      "watchlist_stocks_count":0,
+      "like_count":0,
+      "subscribers_count":1,
+      "subscribed_to_count":0,
+      "following_stocks":0,
+      "location":"",
+      "bio":null,
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+
+        ],
+        "approach":null,
+        "holding_period":null,
+        "experience":null
+      }
+    },
+    {
+      "id":295259,
+      "username":"Smurfologist",
+      "name":"Melvin Woods",
+      "avatar_url":"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
+      "join_date":"2013-12-31",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":85,
+      "following":105,
+      "ideas":2502,
+      "watchlist_stocks_count":313,
+      "like_count":16823,
+      "subscribers_count":2,
+      "subscribed_to_count":1,
+      "following_stocks":5,
+      "location":"",
+      "bio":"I don&#39;t mind having all of my eggs in one basket, especially if it is made of titanium and contains titanium eggs!!!",
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+          "Equities",
+          "Options"
+        ],
+        "approach":"Fundamental",
+        "holding_period":"Position Trader",
+        "experience":"Intermediate"
+      }
     }
   ]
 }
@@ -7229,6 +8004,115 @@ curl https://api.stocktwits.com/api/2/graph/following.json \
 }
 ```
 
+```extended-json
+{
+  "cursor":{
+    "more":true,
+    "since":1450610,
+    "max":295259
+  },
+  "users":[
+    {
+      "id":304332,
+      "username":"sorcefm",
+      "name":"chaz",
+      "avatar_url":"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png",
+      "join_date":"2014-01-23",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":2,
+      "following":0,
+      "ideas":168,
+      "watchlist_stocks_count":11,
+      "like_count":18,
+      "subscribers_count":0,
+      "subscribed_to_count":0,
+      "following_stocks":0,
+      "location":null,
+      "bio":null,
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+
+        ],
+        "approach":null,
+        "holding_period":null,
+        "experience":null
+      }
+    },
+    {
+      "id":802670,
+      "username":"francine86",
+      "name":"Francine Bohnen",
+      "avatar_url":"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png",
+      "join_date":"2016-07-25",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":3,
+      "following":60,
+      "ideas":777,
+      "watchlist_stocks_count":0,
+      "like_count":0,
+      "subscribers_count":1,
+      "subscribed_to_count":0,
+      "following_stocks":0,
+      "location":"",
+      "bio":null,
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+
+        ],
+        "approach":null,
+        "holding_period":null,
+        "experience":null
+      }
+    },
+    {
+      "id":295259,
+      "username":"Smurfologist",
+      "name":"Melvin Woods",
+      "avatar_url":"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
+      "join_date":"2013-12-31",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":85,
+      "following":105,
+      "ideas":2502,
+      "watchlist_stocks_count":313,
+      "like_count":16823,
+      "subscribers_count":2,
+      "subscribed_to_count":1,
+      "following_stocks":5,
+      "location":"",
+      "bio":"I don&#39;t mind having all of my eggs in one basket, especially if it is made of titanium and contains titanium eggs!!!",
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+          "Equities",
+          "Options"
+        ],
+        "approach":"Fundamental",
+        "holding_period":"Position Trader",
+        "experience":"Intermediate"
+      }
+    }
+  ]
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7296,6 +8180,115 @@ curl https://api.stocktwits.com/api/2/graph/following.json \
 }
 ```
 
+```extended-json
+{
+  "cursor":{
+    "more":true,
+    "since":1450610,
+    "max":295259
+  },
+  "users":[
+    {
+      "id":304332,
+      "username":"sorcefm",
+      "name":"chaz",
+      "avatar_url":"http://avatars.stocktwits.com/production/304332/thumb-1459284015.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/304332/thumb-1459284015.png",
+      "join_date":"2014-01-23",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":2,
+      "following":0,
+      "ideas":168,
+      "watchlist_stocks_count":11,
+      "like_count":18,
+      "subscribers_count":0,
+      "subscribed_to_count":0,
+      "following_stocks":0,
+      "location":null,
+      "bio":null,
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+
+        ],
+        "approach":null,
+        "holding_period":null,
+        "experience":null
+      }
+    },
+    {
+      "id":802670,
+      "username":"francine86",
+      "name":"Francine Bohnen",
+      "avatar_url":"http://avatars.stocktwits.com/production/802670/thumb-1469429576.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/802670/thumb-1469429576.png",
+      "join_date":"2016-07-25",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":3,
+      "following":60,
+      "ideas":777,
+      "watchlist_stocks_count":0,
+      "like_count":0,
+      "subscribers_count":1,
+      "subscribed_to_count":0,
+      "following_stocks":0,
+      "location":"",
+      "bio":null,
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+
+        ],
+        "approach":null,
+        "holding_period":null,
+        "experience":null
+      }
+    },
+    {
+      "id":295259,
+      "username":"Smurfologist",
+      "name":"Melvin Woods",
+      "avatar_url":"http://avatars.stocktwits.com/production/295259/thumb-1421935334.png",
+      "avatar_url_ssl":"https://s3.amazonaws.com/st-avatars/production/295259/thumb-1421935334.png",
+      "join_date":"2013-12-31",
+      "official":false,
+      "identity":"User",
+      "classification":[
+
+      ],
+      "followers":85,
+      "following":105,
+      "ideas":2502,
+      "watchlist_stocks_count":313,
+      "like_count":16823,
+      "subscribers_count":2,
+      "subscribed_to_count":1,
+      "following_stocks":5,
+      "location":"",
+      "bio":"I don&#39;t mind having all of my eggs in one basket, especially if it is made of titanium and contains titanium eggs!!!",
+      "website_url":null,
+      "trading_strategy":{
+        "assets_frequently_traded":[
+          "Equities",
+          "Options"
+        ],
+        "approach":"Fundamental",
+        "holding_period":"Position Trader",
+        "experience":"Intermediate"
+      }
+    }
+  ]
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7336,7 +8329,39 @@ curl https://api.stocktwits.com/api/2/friendships/create/<user_id>.json \
     "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
     "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
     "join_date": "2014-06-27",
-    "official": true
+    "official": true,
+  }
+}
+```
+
+```extended-json
+{
+  "user": {
+    "id": 369117,
+    "username": "ericalford",
+    "name": "Eric Alford",
+    "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+    "join_date": "2014-06-27",
+    "official": true,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Director of Engineering at StockTwits.",
+    "website_url": "http://www.twitter.com/ericalford",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
   }
 }
 ```
@@ -7378,7 +8403,39 @@ curl https://api.stocktwits.com/api/2/friendships/destroy/<user_id>.json \
     "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
     "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
     "join_date": "2014-06-27",
-    "official": true
+  }
+}
+```
+
+```extended-json
+{
+  "user": {
+    "id": 369117,
+    "username": "ericalford",
+    "name": "Eric Alford",
+    "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+    "join_date": "2014-06-27",
+    "official": true,
+    "official": true,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Director of Engineering at StockTwits.",
+    "website_url": "http://www.twitter.com/ericalford",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
   }
 }
 ```
@@ -7418,12 +8475,35 @@ curl https://api.stocktwits.com/api/2/watchlists.json \
     {
       "id": 36477,
       "name": "Mobile Watchlist",
+      "static": true
       "updated_at": "2012-08-13T21:59:30Z",
       "created_at": "2012-06-26T02:03:39Z"
     },
     {
       "id": 38398,
       "name": "my picks",
+      "status": false
+      "updated_at": "2012-08-13T21:59:46Z",
+      "created_at": "2012-08-10T22:03:24Z"
+    }
+  ]
+}
+```
+
+```extended-json
+{
+  "watchlists": [
+    {
+      "id": 36477,
+      "name": "Mobile Watchlist",
+      "static": true
+      "updated_at": "2012-08-13T21:59:30Z",
+      "created_at": "2012-06-26T02:03:39Z"
+    },
+    {
+      "id": 38398,
+      "name": "my picks",
+      "status": false
       "updated_at": "2012-08-13T21:59:46Z",
       "created_at": "2012-08-10T22:03:24Z"
     }
@@ -7463,6 +8543,19 @@ curl https://api.stocktwits.com/api/2/watchlists/create.json \
   "watchlist": {
     "id": 38509,
     "name": "new_watch_list",
+    "status": false
+    "updated_at": "2012-08-13T22:09:25Z",
+    "created_at": "2012-08-13T22:09:25Z"
+  }
+}
+```
+
+```extended-json
+{
+  "watchlist": {
+    "id": 38509,
+    "name": "new_watch_list",
+    "status": false
     "updated_at": "2012-08-13T22:09:25Z",
     "created_at": "2012-08-13T22:09:25Z"
   }
@@ -7504,6 +8597,19 @@ curl https://api.stocktwits.com/api/2/watchlists/update/<watchlist_id>.json \
   "watchlist": {
     "id": 38509,
     "name": "new_watchlist_name",
+    "static": false
+    "updated_at": "2012-08-13T22:09:25Z",
+    "created_at": "2012-08-13T22:09:25Z"
+  }
+}
+```
+
+```extended-json
+{
+  "watchlist": {
+    "id": 38509,
+    "name": "new_watchlist_name",
+    "static": false
     "updated_at": "2012-08-13T22:09:25Z",
     "created_at": "2012-08-13T22:09:25Z"
   }
@@ -7538,7 +8644,31 @@ curl https://api.stocktwits.com/api/2/watchlists/destroy/<watchlist_id>.json \
   -H 'Authorization: Bearer <access_token>'
 ```
 
-> Response will be a 204 No Content
+> Response
+
+```json
+{
+  "watchlist": {
+    "id": 38509,
+    "name": "new_watchlist_name",
+    "static": false
+    "updated_at": "2012-08-13T22:13:53Z",
+    "created_at": "2012-08-13T22:09:25Z"
+  }
+}
+```
+
+```extended-json
+{
+  "watchlist": {
+    "id": 38509,
+    "name": "new_watchlist_name",
+    "static": false
+    "updated_at": "2012-08-13T22:13:53Z",
+    "created_at": "2012-08-13T22:09:25Z"
+  }
+}
+```
 
 ### Endpoint Information
 
@@ -7596,6 +8726,52 @@ curl https://api.stocktwits.com/api/2/watchlists/show/<watchlist_id>.json \
 }
 ```
 
+```extended-json
+{
+  "watchlist": {
+    "id": 38398,
+    "name": "my picks",
+    "static": false
+    "updated_at": "2012-08-13T22:26:20Z",
+    "created_at": "2012-08-10T22:03:24Z",
+    "symbols": [
+      {
+        "id": 7871,
+        "symbol": "FB",
+        "title": "Facebook",
+        "exchange": "NASDAQ"
+        "sector": "Technology"
+        "industry": "Internet Information Providers"
+        "trending": false
+        "trending_score": -1.32116
+        "watchlist_count": 59112
+      },
+      {
+        "id": 2044,
+        "symbol": "GOOG",
+        "title": "Google Inc.",
+        "exchange": "NASDAQ"
+        "sector": "Technology"
+        "industry": "Internet Information Providers"
+        "trending": false
+        "trending_score": -0.913312
+        "watchlist_count": 35099
+      },
+      {
+        "id": 686,
+        "symbol": "AAPL",
+        "title": "Apple Inc.",
+        "exchange": "NASDAQ",
+        "sector": null,
+        "industry": null,
+        "trending_score": 14.9595,
+        "watchlist_count": 5576
+      }
+    ]
+  }
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7633,6 +8809,23 @@ curl https://api.stocktwits.com/api/2/watchlists/<watchlist_id>/symbols/create.j
       "id": 686,
       "symbol": "AAPL",
       "title": "Apple Inc."
+    }
+  ]
+}
+```
+
+```extended-json
+{
+  "symbols": [
+    {
+      "id": 686,
+      "symbol": "AAPL",
+      "title": "Apple Inc.",
+      "exchange": "NASDAQ",
+      "sector": null,
+      "industry": null,
+      "trending_score": 14.9595,
+      "watchlist_count": 5576
     }
   ]
 }
@@ -7676,6 +8869,23 @@ curl https://api.stocktwits.com/api/2/watchlists/<watchlist_id>/symbols/destroy.
       "id": 686,
       "symbol": "AAPL",
       "title": "Apple Inc."
+    }
+  ]
+}
+```
+
+```extended-json
+{
+  "symbols": [
+    {
+      "id": 686,
+      "symbol": "AAPL",
+      "title": "Apple Inc.",
+      "exchange": "NASDAQ",
+      "sector": null,
+      "industry": null,
+      "trending_score": 14.9595,
+      "watchlist_count": 5576
     }
   ]
 }
@@ -7727,6 +8937,38 @@ curl https://api.stocktwits.com/api/2/blocks/create/<user_id>.json \
 }
 ```
 
+```extended-json
+{
+  "user": {
+    "id": 176389,
+    "username": "jimmychanos",
+    "name": "Jim Chanos",
+    "avatar_url": "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg",
+    "join_date":"2016-07-25",
+    "official":false,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Life long trader",
+    "website_url": "http://www.jimmychanos.com",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
+  }
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7750,7 +8992,7 @@ This unblocks a user so the authenticating user can reveive messages from the sp
 
 ```shell
 curl https://api.stocktwits.com/api/2/blocks/destroy/<user_id>.json \
-  -X DELETE \
+  -X POST \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -7770,6 +9012,38 @@ curl https://api.stocktwits.com/api/2/blocks/destroy/<user_id>.json \
 }
 ```
 
+```extended-json
+{
+  "user": {
+    "id": 176389,
+    "username": "jimmychanos",
+    "name": "Jim Chanos",
+    "avatar_url": "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg",
+    "join_date":"2016-07-25",
+    "official":false,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Life long trader",
+    "website_url": "http://www.jimmychanos.com",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
+  }
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7778,7 +9052,7 @@ Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
 Pagination? | No
-HTTP Methods: | DELETE
+HTTP Methods: | POST
 
 ### Parameters
 
@@ -7816,6 +9090,38 @@ curl https://api.stocktwits.com/api/2/mutes/create/<user_id>.json \
 }
 ```
 
+```extended-json
+{
+  "user": {
+    "id": 176389,
+    "username": "jimmychanos",
+    "name": "Jim Chanos",
+    "avatar_url": "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg",
+    "join_date":"2016-07-25",
+    "official":false,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Life long trader",
+    "website_url": "http://www.jimmychanos.com",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
+  }
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7839,7 +9145,7 @@ is the `user_id` of the user to unmute, not the username.
 
 ```shell
 curl https://api.stocktwits.com/api/2/mutes/destroy/<user_id>.json \
-  -X DELETE \
+  -X POST \
   -H 'Authorization: Bearer <access_token>'
 ```
 
@@ -7859,6 +9165,38 @@ curl https://api.stocktwits.com/api/2/mutes/destroy/<user_id>.json \
 }
 ```
 
+```extended-json
+{
+  "user": {
+    "id": 176389,
+    "username": "jimmychanos",
+    "name": "Jim Chanos",
+    "avatar_url": "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/images/default_avatar_thumb.jpg",
+    "join_date":"2016-07-25",
+    "official":false,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Life long trader",
+    "website_url": "http://www.jimmychanos.com",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
+  }
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7867,7 +9205,7 @@ Rate Limited? | No
 Requires Authentication? | Yes
 Requires Partner-Level Access? | No
 Pagination? | No
-HTTP Methods: | DELETE
+HTTP Methods: | POST
 
 ### Parameters
 
@@ -7902,6 +9240,38 @@ curl https://api.stocktwits.com/api/2/account/verify.json \
 }
 ```
 
+```extended-json
+{
+  "user": {
+    "id": 369117,
+    "username": "ericalford",
+    "name": "Eric Alford",
+    "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+    "join_date": "2014-06-27",
+    "official": true,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Director of Engineering at StockTwits.",
+    "website_url": "http://www.twitter.com/ericalford",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
+  }
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -7921,7 +9291,7 @@ None
 This updates the properties of the authenticating user's account.
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ```shell
@@ -7934,6 +9304,38 @@ curl https://api.stocktwits.com/api/2/account/update.json \
 > Response
 
 ```json
+{
+  "user": {
+    "id": 369117,
+    "username": "ericalford",
+    "name": "New Name",
+    "avatar_url": "http://avatars.stocktwits.com/production/369117/thumb-1447436971.png",
+    "avatar_url_ssl": "https://s3.amazonaws.com/st-avatars/production/369117/thumb-1447436971.png",
+    "join_date": "2014-06-27",
+    "official": true,
+    "followers": 166,
+    "following": 119,
+    "ideas": 397,
+    "watchlist_stocks_count": 28,
+    "like_count": 398,
+    "subscribers_count": 3,
+    "subscribed_to_count": 1,
+    "location": "New York, NY",
+    "bio": "Director of Engineering at StockTwits.",
+    "website_url": "http://www.twitter.com/ericalford",
+    "trading_strategy": {
+      "assets_frequently_traded": [
+        "Equities"
+      ],
+      "approach": "Momentum",
+      "holding_period": "Swing Trader",
+      "experience": "Intermediate"
+    }
+  }
+}
+```
+
+```extended-json
 {
   "user": {
     "id": 369117,
@@ -8002,17 +9404,55 @@ curl https://api.stocktwits.com/api/2/trending/symbols.json
     {
       "id": 686,
       "symbol": "AAPL",
-      "title": "Apple Inc."
+      "title": "Apple Inc.",
+
     },
     {
-      "id": 30,
-      "symbol": "ES_F",
-      "title": "E-Mini S&P 500 Futures"
+      "id": 947,
+      "symbol": "NFLX",
+      "title": "Netflix, Inc."
     },
     {
       "id": 8660,
       "symbol": "TSLA",
       "title": "Tesla Motors, Inc."
+    }
+  ]
+}
+```
+
+```extended-json
+{
+  "symbols": [
+    {
+      "id": 686,
+      "symbol": "AAPL",
+      "title": "Apple Inc.",
+      "exchange": "NASDAQ",
+      "sector": null,
+      "industry": null,
+      "trending_score": 14.9595,
+      "watchlist_count": 5576
+    },
+    {
+      "id": 947,
+      "symbol": "NFLX",
+      "title": "Netflix, Inc.",
+      "exchange": "NASDAQ",
+      "sector": "Services",
+      "industry": "Music & Video Stores",
+      "trending_score": 12.7897,
+      "watchlist_count": 45951
+    },
+    {
+      "id": 8660,
+      "symbol": "TSLA",
+      "title": "Tesla Motors, Inc.",
+      "exchange": "NASDAQ",
+      "sector": null,
+      "industry": null,
+      "trending_score": 12.7684,
+      "watchlist_count": 2417
     }
   ]
 }
@@ -8067,6 +9507,43 @@ curl https://api.stocktwits.com/api/2/trending/symbols/equities.json
 }
 ```
 
+```extended-json
+{
+  "symbols": [
+    {
+      "id": 686,
+      "symbol": "AAPL",
+      "title": "Apple Inc.",
+      "exchange": "NASDAQ",
+      "sector": null,
+      "industry": null,
+      "trending_score": 14.9595,
+      "watchlist_count": 5576
+    },
+    {
+      "id": 30,
+      "symbol": "ES_F",
+      "title": "E-Mini S&P 500 Futures",
+      "exchange": "CME",
+      "sector": null,
+      "industry": null,
+      "trending_score": 13.8273,
+      "watchlist_count": 3164
+    },
+    {
+      "id": 8660,
+      "symbol": "TSLA",
+      "title": "Tesla Motors, Inc.",
+      "exchange": "NASDAQ",
+      "sector": null,
+      "industry": null,
+      "trending_score": 12.7684,
+      "watchlist_count": 2417
+    }
+  ]
+}
+```
+
 ### Endpoint Information
 
 Description | Value
@@ -8090,7 +9567,7 @@ limit | Default and max limit is 30. This limit must be a number under 30.
 Returns a list of messages deleted recently. This is to be used in conjunction with firehose access.
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ```shell
@@ -8101,6 +9578,48 @@ curl https://api.stocktwits.com/api/2/deletions/messages.json \
 > Response
 
 ```json
+{
+  "cursor": {
+    "since": 111868,
+    "max": 111769,
+    "more": true
+  },
+  "messages": [
+    {
+      "id": 111868,
+      "message_id": 9092561,
+      "deleted_at": "2012-08-13T22:29:04Z"
+    },
+    {
+      "id": 111867,
+      "message_id": 9093785,
+      "deleted_at": "2012-08-13T22:28:28Z"
+    },
+    {
+      "id": 111866,
+      "message_id": 9093714,
+      "deleted_at": "2012-08-13T22:16:05Z"
+    },
+    {
+      "id": 111865,
+      "message_id": 9093260,
+      "deleted_at": "2012-08-13T22:03:41Z"
+    },
+    {
+      "id": 111864,
+      "message_id": 9093113,
+      "deleted_at": "2012-08-13T22:03:37Z"
+    },
+    {
+      "id": 111863,
+      "message_id": 9093142,
+      "deleted_at": "2012-08-13T21:28:55Z"
+    },
+  ]
+}
+```
+
+```extended-json
 {
   "cursor": {
     "since": 111868,
@@ -8164,7 +9683,7 @@ max | Returns results with an ID less than (older than) or equal to the specifie
 Returns a list of user accounts deleted recently. This is to be used in conjunction with firehose access.
 
 <aside class="success">
-This API end-point is only available through [Partner-Level Access.](mailto:api@stocktwits.com)
+This API end-point is only available through <a href='#'>Partner-Level Access.</a>
 </aside>
 
 ```shell
@@ -8175,6 +9694,54 @@ curl https://api.stocktwits.com/api/2/deletions/users.json \
 > Response
 
 ```json
+{
+  "cursor": {
+    "since": 924,
+    "max": 825,
+    "more": true
+  },
+  "users": [
+    {
+      "id": 924,
+      "user_id": 147524,
+      "username": "SSX999",
+      "deleted_at": "2012-08-13T18:22:53Z"
+    },
+    {
+      "id": 923,
+      "user_id": 176669,
+      "username": "jhardiejr2",
+      "deleted_at": "2012-08-13T14:24:59Z"
+    },
+    {
+      "id": 922,
+      "user_id": 130685,
+      "username": "dp06x",
+      "deleted_at": "2012-08-13T14:18:15Z"
+    },
+    {
+      "id": 921,
+      "user_id": 158870,
+      "username": "daniaconcha",
+      "deleted_at": "2012-08-13T14:08:41Z"
+    },
+    {
+      "id": 920,
+      "user_id": 102850,
+      "username": "sshin1212",
+      "deleted_at": "2012-08-13T14:07:21Z"
+    },
+    {
+      "id": 919,
+      "user_id": 59050,
+      "username": "FXTrader",
+      "deleted_at": "2012-08-13T13:49:00Z"
+    }
+  ]
+}
+```
+
+```extended-json
 {
   "cursor": {
     "since": 924,

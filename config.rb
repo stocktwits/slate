@@ -1,3 +1,5 @@
+require File.expand_path('../source/extended_json_lexer', __FILE__)
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
